@@ -457,29 +457,66 @@
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 42px;
-            }
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 42px;
+    }
 
-            .hero p {
-                font-size: 18px;
-            }
+    .hero p {
+        font-size: 18px;
+    }
 
-            .section-title {
-                font-size: 36px;
-            }
+    .section-title {
+        font-size: 36px;
+    }
 
-            .nav-links {
-                display: none;
-            }
+    .nav-links {
+        /* Mengubah dari display: none menjadi setup untuk menu mobile */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        background: rgba(15, 23, 42, 0.98); /* Sedikit lebih pekat */
+        position: absolute;
+        top: 100%; /* Posisi tepat di bawah navbar */
+        left: 0;
+        width: 100%;
+        
+        /* Sembunyikan menu di luar layar pada awalnya */
+        transform: translateY(-150%);
+        transition: transform 0.4s ease-in-out;
+        
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+    }
+    
+    /* === KELAS BARU UNTUK MENAMPILKAN MENU === */
+    .nav-links.nav-active {
+        /* Bawa menu ke dalam layar saat aktif */
+        transform: translateY(0);
+    }
 
-            .mobile-menu-btn {
-                display: block;
-            }
+    .nav-links a {
+        padding: 16px 0;
+        width: 100%;
+        text-align: center;
+    }
 
-            .service-grid,
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+    .nav-links a::after {
+        /* Sembunyikan garis bawah di mobile agar tidak aneh */
+        display: none;
+    }
+
+    .lang-switch {
+        margin-top: 10px;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .service-grid,
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
