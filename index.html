@@ -4,146 +4,1113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PT Menuju Startup - Innovative Tech Solutions</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- Memuat Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Memuat Lucide Icons -->
+    <script src="https://unpkg.com/lucide-react@latest/dist/umd/lucide-react.js"></script>
 </head>
-<body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">Menuju Startup</a>
-            <div class="nav-links">
-                <a href="#hero" data-en="Home" data-id="Home">Home</a>
-                <a href="#services" data-en="Services" data-id="Layanan">Layanan</a>
-                <a href="#portfolio" data-en="Projects" data-id="Proyek">Proyek</a>
-                <a href="#team" data-en="Team" data-id="Tim">Tim</a>
-                <a href="#contact" data-en="Contact" data-id="Kontak">Kontak</a>
-                <button class="lang-switch" onclick="toggleLanguage()">EN / ID</button>
+<body class="bg-slate-950 text-slate-100 overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-slate-900/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <button onclick="navigateTo('home')" class="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+                    Menuju Startup
+                </button>
+                
+                <!-- Navigasi Desktop -->
+                <div id="navLinks" class="hidden md:flex items-center space-x-8">
+                    <button onclick="navigateTo('home')" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-300 transition-colors" data-page="home">Home</button>
+                    <button onclick="navigateTo('services')" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-300 transition-colors" data-page="services" data-id="Layanan" data-en="Services">Layanan</button>
+                    <button onclick="navigateTo('portfolio')" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-300 transition-colors" data-page="portfolio" data-id="Portofolio" data-en="Portfolio">Portofolio</button>
+                    <button onclick="navigateTo('team')" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-300 transition-colors" data-page="team" data-id="Tim" data-en="Team">Tim</button>
+                    <button onclick="navigateTo('builder')" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-300 transition-colors" data-page="builder">Web Builder</button>
+                    <button onclick="navigateTo('about')" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-300 transition-colors" data-page="about" data-id="Tentang" data-en="About">Tentang</button>
+                    <button onclick="navigateTo('contact')" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-300 transition-colors" data-page="contact" data-id="Kontak" data-en="Contact">Kontak</button>
+                    <button onclick="toggleLanguage()" class="px-4 py-2 text-sm font-semibold bg-slate-800 hover:bg-indigo-600 rounded-lg transition-all">
+                        <span id="langBtn">EN</span>
+                    </button>
+                </div>
+
+                <!-- Tombol Menu Mobile -->
+                <button onclick="toggleMobileMenu()" class="md:hidden" aria-label="Toggle mobile menu">
+                    <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="xIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
             </div>
-            <button class="mobile-menu-btn">☰</button>
+
+            <!-- Menu Mobile (Dropdown) -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4 space-y-3">
+                <button onclick="navigateTo('home')" class="nav-link-mobile block w-full text-left px-4 py-2 rounded-lg hover:bg-slate-800" data-page="home">Home</button>
+                <button onclick="navigateTo('services')" class="nav-link-mobile block w-full text-left px-4 py-2 rounded-lg hover:bg-slate-800" data-page="services" data-id="Layanan" data-en="Services">Layanan</button>
+                <button onclick="navigateTo('portfolio')" class="nav-link-mobile block w-full text-left px-4 py-2 rounded-lg hover:bg-slate-800" data-page="portfolio" data-id="Portofolio" data-en="Portfolio">Portofolio</button>
+                <button onclick="navigateTo('team')" class="nav-link-mobile block w-full text-left px-4 py-2 rounded-lg hover:bg-slate-800" data-page="team" data-id="Tim" data-en="Team">Tim</button>
+                <button onclick="navigateTo('builder')" class="nav-link-mobile block w-full text-left px-4 py-2 rounded-lg hover:bg-slate-800" data-page="builder">Web Builder</button>
+                <button onclick="navigateTo('about')" class="nav-link-mobile block w-full text-left px-4 py-2 rounded-lg hover:bg-slate-800" data-page="about" data-id="Tentang" data-en="About">Tentang</button>
+                <button onclick="navigateTo('contact')" class="nav-link-mobile block w-full text-left px-4 py-2 rounded-lg hover:bg-slate-800" data-page="contact" data-id="Kontak" data-en="Contact">Kontak</button>
+            </div>
         </div>
     </nav>
 
-    <main>
-        <section id="hero" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 data-en="Building Your Digital Future" data-id="Membangun Masa Depan Digital Anda">Membangun Masa Depan Digital Anda</h1>
-                    <p data-en="We are your technology partner ready to help you transform through website development, mobile applications, and custom IT solutions." data-id="Kami adalah partner teknologi yang siap membantu Anda bertransformasi melalui pengembangan website, aplikasi mobile, dan solusi IT kustom.">Kami adalah partner teknologi yang siap membantu Anda bertransformasi melalui pengembangan website, aplikasi mobile, dan solusi IT kustom.</p>
-                    <a href="#contact" class="cta-button" data-en="Discuss Your Project" data-id="Diskusikan Proyek Anda">Diskusikan Proyek Anda</a>
+    <!-- Kontainer Utama untuk Halaman -->
+    <main class="pt-16">
+        
+        <!-- ======================= -->
+        <!--      HALAMAN HOME       -->
+        <!-- ======================= -->
+        <section id="homePage" class="page-section active">
+            <!-- Hero Section -->
+            <div class="relative min-h-screen flex items-center justify-center overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-slate-950 to-purple-900/20"></div>
+                <div id="starsContainer" class="absolute inset-0"></div>
+                
+                <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+                    <div class="inline-flex items-center space-x-2 bg-indigo-500/10 px-4 py-2 rounded-full border border-indigo-500/20 mb-6">
+                        <span class="text-xl">✨</span>
+                        <span class="text-sm text-indigo-300" data-id="Transformasi Digital Dimulai Di Sini" data-en="Digital Transformation Starts Here">Transformasi Digital Dimulai Di Sini</span>
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
+                        <span data-id="Membangun Masa Depan" data-en="Building The Future">Membangun Masa Depan</span><br>
+                        <span data-id="Digital Anda" data-en="Of Your Digital">Digital Anda</span>
+                    </h1>
+                    <p class="text-xl text-slate-300 mb-8 max-w-3xl mx-auto" data-id="Partner teknologi yang siap membantu Anda bertransformasi melalui pengembangan website, aplikasi mobile, dan solusi IT kustom." data-en="Technology partner ready to help you transform through website development, mobile applications, and custom IT solutions.">
+                        Partner teknologi yang siap membantu Anda bertransformasi melalui pengembangan website, aplikasi mobile, dan solusi IT kustom.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="navigateTo('contact')" class="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all transform hover:scale-105 flex items-center justify-center space-x-2">
+                            <span data-id="Mulai Proyek" data-en="Start Project">Mulai Proyek</span>
+                            <span class="lucide-icon" data-lucide="chevron-right"></span>
+                        </button>
+                        <button onclick="navigateTo('builder')" class="px-8 py-4 bg-slate-800 hover:bg-slate-700 rounded-lg font-semibold transition-all border border-slate-700 flex items-center justify-center space-x-2">
+                            <span class="lucide-icon" data-lucide="zap"></span>
+                            <span data-id="Coba Web Builder AI" data-en="Try AI Web Builder">Coba Web Builder AI</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Services -->
+            <div class="py-20 bg-slate-900/50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold mb-4" data-id="Layanan Kami" data-en="Our Services">Layanan Kami</h2>
+                        <p class="text-slate-400" data-id="Solusi teknologi terbaik untuk bisnis Anda" data-en="Best technology solutions for your business">Solusi teknologi terbaik untuk bisnis Anda</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105 cursor-pointer">
+                            <span class="lucide-icon text-indigo-400 mb-4 w-8 h-8" data-lucide="globe"></span>
+                            <h3 class="text-xl font-semibold mb-2">Web Development</h3>
+                            <p class="text-slate-400 text-sm" data-id="Website responsif dan modern" data-en="Responsive and modern websites">Website responsif dan modern</p>
+                        </div>
+                        <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105 cursor-pointer">
+                            <span class="lucide-icon text-indigo-400 mb-4 w-8 h-8" data-lucide="smartphone"></span>
+                            <h3 class="text-xl font-semibold mb-2">Mobile Apps</h3>
+                            <p class="text-slate-400 text-sm" data-id="Aplikasi iOS & Android" data-en="iOS & Android applications">Aplikasi iOS & Android</p>
+                        </div>
+                        <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105 cursor-pointer">
+                            <span class="lucide-icon text-indigo-400 mb-4 w-8 h-8" data-lucide="palette"></span>
+                            <h3 class="text-xl font-semibold mb-2">UI/UX Design</h3>
+                            <p class="text-slate-400 text-sm" data-id="Desain intuitif dan menarik" data-en="Intuitive and attractive design">Desain intuitif dan menarik</p>
+                        </div>
+                        <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105 cursor-pointer">
+                            <span class="lucide-icon text-indigo-400 mb-4 w-8 h-8" data-lucide="database"></span>
+                            <h3 class="text-xl font-semibold mb-2">Backend Systems</h3>
+                            <p class="text-slate-400 text-sm" data-id="Sistem backend scalable" data-en="Scalable backend systems">Sistem backend scalable</p>
+                        </div>
+                    </div>
+                    <div class="text-center mt-12">
+                        <button onclick="navigateTo('services')" class="text-indigo-400 hover:text-indigo-300 font-semibold flex items-center justify-center mx-auto space-x-2">
+                            <span data-id="Lihat Semua Layanan" data-en="View All Services">Lihat Semua Layanan</span>
+                            <span class="lucide-icon w-5 h-5" data-lucide="chevron-right"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="py-20">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                        <div>
+                            <div class="text-4xl font-bold text-indigo-400 mb-2">50+</div>
+                            <div class="text-slate-400" data-id="Proyek Selesai" data-en="Projects Completed">Proyek Selesai</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold text-indigo-400 mb-2">30+</div>
+                            <div class="text-slate-400" data-id="Klien Puas" data-en="Happy Clients">Klien Puas</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold text-indigo-400 mb-2">6</div>
+                            <div class="text-slate-400">Founders</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold text-indigo-400 mb-2">3+</div>
+                            <div class="text-slate-400" data-id="Tahun Pengalaman" data-en="Years Experience">Tahun Pengalaman</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="services" class="services">
-            <div class="container">
-                <h2 class="section-title" data-en="Our Featured Services" data-id="Layanan Unggulan Kami">Layanan Unggulan Kami</h2>
-                <div class="service-grid">
-                    <div class="service-card animate-on-scroll">
-                        <h3 data-en="Website & App Development" data-id="Pengembangan Website & Aplikasi">Pengembangan Website & Aplikasi</h3>
-                        <p data-en="Creating company profile websites, e-commerce, to complex web applications that are responsive and modern." data-id="Membuat website company profile, e-commerce, hingga aplikasi web kompleks yang responsif dan modern.">Membuat website company profile, e-commerce, hingga aplikasi web kompleks yang responsif dan modern.</p>
+        <!-- ======================= -->
+        <!--     HALAMAN SERVICES    -->
+        <!-- ======================= -->
+        <section id="servicesPage" class="page-section py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 fade-in">
+                    <h1 class="text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent" data-id="Layanan Kami" data-en="Our Services">Layanan Kami</h1>
+                    <p class="text-xl text-slate-400 max-w-3xl mx-auto" data-id="Solusi teknologi lengkap untuk mengembangkan bisnis Anda ke level berikutnya" data-en="Complete technology solutions to take your business to the next level">
+                        Solusi teknologi lengkap untuk mengembangkan bisnis Anda ke level berikutnya
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Web Development -->
+                    <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105">
+                        <span class="lucide-icon text-indigo-400 mb-6 w-12 h-12" data-lucide="globe"></span>
+                        <h3 class="text-2xl font-bold mb-4">Web Development</h3>
+                        <p class="text-slate-400 mb-6 leading-relaxed" data-id="Pembuatan website profesional dengan teknologi terkini seperti React, Next.js, dan Node.js. Dari company profile hingga aplikasi web kompleks." data-en="Professional website development with latest technologies like React, Next.js, and Node.js. From company profiles to complex web applications.">
+                            Pembuatan website profesional dengan teknologi terkini seperti React, Next.js, dan Node.js. Dari company profile hingga aplikasi web kompleks.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">Responsive Design</span></div>
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">SEO Optimized</span></div>
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">Fast Performance</span></div>
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">Secure & Scalable</span></div>
+                        </div>
                     </div>
-                    <div class="service-card animate-on-scroll">
-                        <h3 data-en="UI/UX Design" data-id="Desain UI/UX">Desain UI/UX</h3>
-                        <p data-en="Designing interfaces that are not only visually beautiful, but also intuitive and easy to use." data-id="Merancang antarmuka yang tidak hanya indah secara visual, tetapi juga intuitif dan mudah digunakan oleh user.">Merancang antarmuka yang tidak hanya indah secara visual, tetapi juga intuitif dan mudah digunakan oleh user.</p>
+                    <!-- Mobile App Development -->
+                    <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105">
+                        <span class="lucide-icon text-indigo-400 mb-6 w-12 h-12" data-lucide="smartphone"></span>
+                        <h3 class="text-2xl font-bold mb-4">Mobile App Development</h3>
+                        <p class="text-slate-400 mb-6 leading-relaxed" data-id="Aplikasi mobile native dan cross-platform untuk iOS dan Android menggunakan Flutter dan React Native." data-en="Native and cross-platform mobile applications for iOS and Android using Flutter and React Native.">
+                            Aplikasi mobile native dan cross-platform untuk iOS dan Android menggunakan Flutter dan React Native.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">iOS & Android</span></div>
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">Cross-platform</span></div>
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">Native Performance</span></div>
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">App Store Ready</span></div>
+                        </div>
                     </div>
-                    <div class="service-card animate-on-scroll">
-                        <h3 data-en="IT Consulting & System Architecture" data-id="Konsultasi IT & Arsitektur Sistem">Konsultasi IT & Arsitektur Sistem</h3>
-                        <p data-en="Providing the best technology strategy and architecture to ensure your business scalability and security." data-id="Memberikan strategi dan arsitektur teknologi terbaik untuk memastikan skalabilitas dan keamanan bisnis Anda.">Memberikan strategi dan arsitektur teknologi terbaik untuk memastikan skalabilitas dan keamanan bisnis Anda.</p>
+                    <!-- UI/UX Design -->
+                    <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105">
+                        <span class="lucide-icon text-indigo-400 mb-6 w-12 h-12" data-lucide="palette"></span>
+                        <h3 class="text-2xl font-bold mb-4">UI/UX Design</h3>
+                        <p class="text-slate-400 mb-6 leading-relaxed" data-id="Desain interface yang intuitif dan user-friendly dengan pendekatan user-centered design dan prototyping." data-en="Intuitive and user-friendly interface design with user-centered design approach and prototyping.">
+                            Desain interface yang intuitif dan user-friendly dengan pendekatan user-centered design dan prototyping.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">User Research</span></div>
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">Wireframing</span></div>
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">Prototyping</span></div>
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">Usability Testing</span></div>
+                        </div>
+                    </div>
+                    <!-- Backend Development -->
+                    <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105">
+                        <span class="lucide-icon text-indigo-400 mb-6 w-12 h-12" data-lucide="database"></span>
+                        <h3 class="text-2xl font-bold mb-4">Backend Development</h3>
+                        <p class="text-slate-400 mb-6 leading-relaxed" data-id="Pengembangan sistem backend yang robust, scalable, dan secure dengan berbagai teknologi database dan API." data-en="Robust, scalable, and secure backend system development with various database technologies and APIs.">
+                            Pengembangan sistem backend yang robust, scalable, dan secure dengan berbagai teknologi database dan API.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">RESTful API</span></div>
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">Database Design</span></div>
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">Cloud Integration</span></div>
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">Microservices</span></div>
+                        </div>
+                    </div>
+                    <!-- Cybersecurity -->
+                    <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105">
+                        <span class="lucide-icon text-indigo-400 mb-6 w-12 h-12" data-lucide="shield"></span>
+                        <h3 class="text-2xl font-bold mb-4">Cybersecurity</h3>
+                        <p class="text-slate-400 mb-6 leading-relaxed" data-id="Layanan keamanan aplikasi dan infrastruktur untuk melindungi data dan sistem Anda dari ancaman cyber." data-en="Application and infrastructure security services to protect your data and systems from cyber threats.">
+                            Layanan keamanan aplikasi dan infrastruktur untuk melindungi data dan sistem Anda dari ancaman cyber.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">Security Audit</span></div>
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">Penetration Testing</span></div>
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">Compliance</span></div>
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">Monitoring</span></div>
+                        </div>
+                    </div>
+                    <!-- IT Consulting -->
+                    <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105">
+                        <span class="lucide-icon text-indigo-400 mb-6 w-12 h-12" data-lucide="cpu"></span>
+                        <h3 class="text-2xl font-bold mb-4">IT Consulting</h3>
+                        <p class="text-slate-400 mb-6 leading-relaxed" data-id="Konsultasi strategi teknologi untuk mengoptimalkan proses bisnis dan meningkatkan efisiensi operasional." data-en="Technology strategy consulting to optimize business processes and improve operational efficiency.">
+                            Konsultasi strategi teknologi untuk mengoptimalkan proses bisnis dan meningkatkan efisiensi operasional.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">Digital Strategy</span></div>
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">Tech Stack Selection</span></div>
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">Architecture Design</span></div>
+                            <div class="flex items-center space-x-2 text-sm"><div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div><span class="text-slate-300">Process Optimization</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="mt-16 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-12 text-center">
+                    <h2 class="text-3xl font-bold mb-4" data-id="Punya Proyek dalam Pikiran?" data-en="Have a Project in Mind?">Punya Proyek dalam Pikiran?</h2>
+                    <p class="text-lg mb-8 opacity-90" data-id="Mari diskusikan bagaimana kami dapat membantu mewujudkan ide Anda" data-en="Let's discuss how we can help bring your ideas to life">Mari diskusikan bagaimana kami dapat membantu mewujudkan ide Anda</p>
+                    <button onclick="navigateTo('contact')" class="px-8 py-4 bg-white text-indigo-600 rounded-lg font-semibold hover:bg-slate-100 transition-all">
+                        <span data-id="Hubungi Kami" data-en="Contact Us">Hubungi Kami</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= -->
+        <!--    HALAMAN PORTFOLIO    -->
+        <!-- ======================= -->
+        <section id="portfolioPage" class="page-section py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 fade-in">
+                    <h1 class="text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent" data-id="Portofolio Kami" data-en="Our Portfolio">Portofolio Kami</h1>
+                    <p class="text-xl text-slate-400 max-w-3xl mx-auto" data-id="Proyek-proyek yang telah kami kerjakan dengan dedikasi dan keahlian tinggi" data-en="Projects we have completed with dedication and high expertise">
+                        Proyek-proyek yang telah kami kerjakan dengan dedikasi dan keahlian tinggi
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1: Cinelux -->
+                    <div class="bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105 cursor-pointer">
+                        <div class="h-48 bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-6xl">🎬</div>
+                        <div class="p-6">
+                            <div class="text-indigo-400 text-sm font-semibold mb-2">Mobile App</div>
+                            <h3 class="text-2xl font-bold mb-2">Cinelux</h3>
+                            <p class="text-slate-400 mb-4" data-id="Aplikasi booking tiket bioskop dengan Flutter" data-en="Cinema ticket booking app with Flutter">Aplikasi booking tiket bioskop dengan Flutter</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Flutter</span>
+                                <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Firebase</span>
+                                <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Payment Gateway</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 2: LaundryPro -->
+                    <div class="bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105 cursor-pointer">
+                        <div class="h-48 bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-6xl">👕</div>
+                        <div class="p-6">
+                            <div class="text-indigo-400 text-sm font-semibold mb-2">Web & Mobile</div>
+                            <h3 class="text-2xl font-bold mb-2">LaundryPro</h3>
+                            <p class="text-slate-400 mb-4" data-id="Sistem manajemen laundry lengkap" data-en="Complete laundry management system">Sistem manajemen laundry lengkap</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">React</span>
+                                <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Node.js</span>
+                                <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">PostgreSQL</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 3: Rumaia -->
+                    <div class="bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105 cursor-pointer">
+                        <div class="h-48 bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-6xl">🏠</div>
+                        <div class="p-6">
+                            <div class="text-indigo-400 text-sm font-semibold mb-2">Web Platform</div>
+                            <h3 class="text-2xl font-bold mb-2">Rumaia</h3>
+                            <p class="text-slate-400 mb-4" data-id="Platform properti berbasis blockchain" data-en="Blockchain-based property platform">Platform properti berbasis blockchain</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Next.js</span>
+                                <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Blockchain</span>
+                                <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Smart Contracts</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 4: FoodDelivery -->
+                    <div class="bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105 cursor-pointer">
+                        <div class="h-48 bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-6xl">🍔</div>
+                        <div class="p-6">
+                            <div class="text-indigo-400 text-sm font-semibold mb-2">Mobile App</div>
+                            <h3 class="text-2xl font-bold mb-2">FoodDelivery</h3>
+                            <p class="text-slate-400 mb-4" data-id="Aplikasi delivery makanan real-time" data-en="Real-time food delivery app">Aplikasi delivery makanan real-time</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">React Native</span>
+                                <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Google Maps</span>
+                                <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Firebase</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 5: EduLearn -->
+                    <div class="bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105 cursor-pointer">
+                        <div class="h-48 bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-6xl">📚</div>
+                        <div class="p-6">
+                            <div class="text-indigo-400 text-sm font-semibold mb-2">Web Platform</div>
+                            <h3 class="text-2xl font-bold mb-2">EduLearn</h3>
+                            <p class="text-slate-400 mb-4" data-id="Platform pembelajaran online interaktif" data-en="Interactive online learning platform">Platform pembelajaran online interaktif</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Vue.js</span>
+                                <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Laravel</span>
+                                <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 6: HealthCare -->
+                    <div class="bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105 cursor-pointer">
+                        <div class="h-48 bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-6xl">⚕️</div>
+                        <div class="p-6">
+                            <div class="text-indigo-400 text-sm font-semibold mb-2">Mobile App</div>
+                            <h3 class="text-2xl font-bold mb-2">HealthCare</h3>
+                            <p class="text-slate-400 mb-4" data-id="Aplikasi konsultasi kesehatan online" data-en="Online health consultation app">Aplikasi konsultasi kesehatan online</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Flutter</span>
+                                <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">WebRTC</span>
+                                <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Node.js</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="portfolio" class="portfolio">
-            <div class="container">
-                <h2 class="section-title" data-en="Projects We've Worked On" data-id="Proyek yang Pernah Kami Kerjakan">Proyek yang Pernah Kami Kerjakan</h2>
-                <div class="portfolio-grid">
-                    <div class="portfolio-card animate-on-scroll">
-                        <img src="https://via.placeholder.com/400x250/6366f1/ffffff?text=Cinelux" alt="Cinelux Project">
-                        <div class="portfolio-content">
-                            <h3 data-en="Cinelux Ticket Booking App" data-id="Aplikasi Booking Tiket Cinelux">Aplikasi Booking Tiket "Cinelux"</h3>
-                            <p data-en="Flutter-based mobile app for cinema ticket booking with payment gateway integration." data-id="Aplikasi mobile berbasis Flutter untuk pemesanan tiket bioskop dengan integrasi payment gateway.">Aplikasi mobile berbasis Flutter untuk pemesanan tiket bioskop dengan integrasi payment gateway.</p>
-                        </div>
+      <!-- ======================= -->
+<!--       HALAMAN TEAM      -->
+<!-- ======================= -->
+<section id="teamPage" class="page-section py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+            <h1 class="text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent" data-id="Tim Founders Kami" data-en="Our Founding Team">Tim Founders Kami</h1>
+            <p class="text-xl text-slate-400 max-w-3xl mx-auto" data-id="Bertemu dengan para pendiri yang berdedikasi untuk menghadirkan solusi teknologi terbaik" data-en="Meet the founders dedicated to delivering the best technology solutions">
+                Bertemu dengan para pendiri yang berdedikasi untuk menghadirkan solusi teknologi terbaik
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Fabian Syah Al Ghiffari -->
+            <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105">
+                <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-indigo-500">
+                    <img src="assets/bian.jpg" alt="Fabian Syah Al Ghiffari" class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-2xl font-bold mb-1 text-center">Fabian Syah Al Ghiffari</h3>
+                <p class="text-indigo-400 text-center mb-4 font-semibold">CEO & Lead Developer</p>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed" data-id="Full-stack developer dengan 5+ tahun pengalaman. Spesialis dalam React, Node.js, dan cloud architecture." data-en="Full-stack developer with 5+ years experience. Specialist in React, Node.js, and cloud architecture.">
+                    Full-stack developer dengan 5+ tahun pengalaman. Spesialis dalam React, Node.js, dan cloud architecture.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6 justify-center">
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">React</span>
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Node.js</span>
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">AWS</span>
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">System Design</span>
+                </div>
+                <div class="flex justify-center space-x-4 pt-4 border-t border-slate-700">
+                    <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors" aria-label="Github"><span class="lucide-icon" data-lucide="github"></span></a>
+                    <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors" aria-label="LinkedIn"><span class="lucide-icon" data-lucide="linkedin"></span></a>
+                    <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors" aria-label="Twitter"><span class="lucide-icon" data-lucide="twitter"></span></a>
+                </div>
+            </div>
+
+            <!-- Gerry Bagaskoro Putro -->
+            <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105">
+                <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-indigo-500">
+                    <img src="assets/bian.jpg" alt="Gerry Bagaskoro Putro" class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-2xl font-bold mb-1 text-center">Gerry Bagaskoro Putro</h3>
+                <p class="text-indigo-400 text-center mb-4 font-semibold">CTO & Backend Architect</p>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed" data-id="Expert dalam microservices dan database optimization. Passionate tentang clean code dan scalable systems." data-en="Expert in microservices and database optimization. Passionate about clean code and scalable systems.">
+                    Expert dalam microservices dan database optimization. Passionate tentang clean code dan scalable systems.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6 justify-center">
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Python</span>
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Kubernetes</span>
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">PostgreSQL</span>
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Redis</span>
+                </div>
+                <div class="flex justify-center space-x-4 pt-4 border-t border-slate-700">
+                    <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors" aria-label="Github"><span class="lucide-icon" data-lucide="github"></span></a>
+                    <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors" aria-label="LinkedIn"><span class="lucide-icon" data-lucide="linkedin"></span></a>
+                    <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors" aria-label="Twitter"><span class="lucide-icon" data-lucide="twitter"></span></a>
+                </div>
+            </div>
+
+            <!-- Raul Akbarullah -->
+            <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105">
+                <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-indigo-500">
+                    <img src="assets/bian.jpg" alt="Raul Akbarullah" class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-2xl font-bold mb-1 text-center">Raul Akbarullah</h3>
+                <p class="text-indigo-400 text-center mb-4 font-semibold">Head of Design</p>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed" data-id="UI/UX designer dengan portofolio internasional. Fokus pada user-centered design dan accessibility." data-en="UI/UX designer with international portfolio. Focus on user-centered design and accessibility.">
+                    UI/UX designer dengan portofolio internasional. Fokus pada user-centered design dan accessibility.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6 justify-center">
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Figma</span>
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">UI/UX</span>
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Design Systems</span>
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Prototyping</span>
+                </div>
+                <div class="flex justify-center space-x-4 pt-4 border-t border-slate-700">
+                    <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors" aria-label="Github"><span class="lucide-icon" data-lucide="github"></span></a>
+                    <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors" aria-label="LinkedIn"><span class="lucide-icon" data-lucide="linkedin"></span></a>
+                    <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors" aria-label="Twitter"><span class="lucide-icon" data-lucide="twitter"></span></a>
+                </div>
+            </div>
+
+            <!-- Naufal Dwi -->
+            <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105">
+                <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-indigo-500">
+                    <img src="assets/bian.jpg" alt="Naufal Dwi" class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-2xl font-bold mb-1 text-center">Naufal Dwi</h3>
+                <p class="text-indigo-400 text-center mb-4 font-semibold">Lead Mobile Developer</p>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed" data-id="Mobile development expert dengan spesialisasi Flutter dan React Native. Telah membuat 20+ aplikasi mobile." data-en="Mobile development expert specializing in Flutter and React Native. Has created 20+ mobile apps.">
+                    Mobile development expert dengan spesialisasi Flutter dan React Native. Telah membuat 20+ aplikasi mobile.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6 justify-center">
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Flutter</span>
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">React Native</span>
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">iOS</span>
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Android</span>
+                </div>
+                <div class="flex justify-center space-x-4 pt-4 border-t border-slate-700">
+                    <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors" aria-label="Github"><span class="lucide-icon" data-lucide="github"></span></a>
+                    <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors" aria-label="LinkedIn"><span class="lucide-icon" data-lucide="linkedin"></span></a>
+                    <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors" aria-label="Twitter"><span class="lucide-icon" data-lucide="twitter"></span></a>
+                </div>
+            </div>
+
+            <!-- Dea Hanna -->
+            <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105">
+                <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-indigo-500">
+                    <img src="assets/bian.jpg" alt="Dea Hanna" class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-2xl font-bold mb-1 text-center">Dea Hanna</h3>
+                <p class="text-indigo-400 text-center mb-4 font-semibold">DevOps Engineer</p>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed" data-id="DevOps specialist dengan expertise dalam CI/CD, cloud infrastructure, dan automation." data-en="DevOps specialist with expertise in CI/CD, cloud infrastructure, and automation.">
+                    DevOps specialist dengan expertise dalam CI/CD, cloud infrastructure, dan automation.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6 justify-center">
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Docker</span>
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Jenkins</span>
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">AWS</span>
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Terraform</span>
+                </div>
+                <div class="flex justify-center space-x-4 pt-4 border-t border-slate-700">
+                    <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors" aria-label="Github"><span class="lucide-icon" data-lucide="github"></span></a>
+                    <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors" aria-label="LinkedIn"><span class="lucide-icon" data-lucide="linkedin"></span></a>
+                    <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors" aria-label="Twitter"><span class="lucide-icon" data-lucide="twitter"></span></a>
+                </div>
+            </div>
+
+            <!-- Triana -->
+            <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105">
+                <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-indigo-500">
+                    <img src="assets/bian.jpg" alt="Triana" class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-2xl font-bold mb-1 text-center">Triana</h3>
+                <p class="text-indigo-400 text-center mb-4 font-semibold">Project Manager</p>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed" data-id="Experienced project manager dengan track record mengelola proyek kompleks dari berbagai industri." data-en="Experienced project manager with track record of managing complex projects from various industries.">
+                    Experienced project manager dengan track record mengelola proyek kompleks dari berbagai industri.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6 justify-center">
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Agile</span>
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Scrum</span>
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Jira</span>
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Stakeholder Mgmt</span>
+                </div>
+                <div class="flex justify-center space-x-4 pt-4 border-t border-slate-700">
+                    <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors" aria-label="Github"><span class="lucide-icon" data-lucide="github"></span></a>
+                    <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors" aria-label="LinkedIn"><span class="lucide-icon" data-lucide="linkedin"></span></a>
+                    <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors" aria-label="Twitter"><span class="lucide-icon" data-lucide="twitter"></span></a>
+                </div>
+            </div>
+
+            <!-- Aldi -->
+            <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 hover:border-indigo-500 transition-all hover:transform hover:scale-105">
+                <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-indigo-500">
+                    <img src="assets/bian.jpg" alt="Aldi" class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-2xl font-bold mb-1 text-center">Aldi</h3>
+                <p class="text-indigo-400 text-center mb-4 font-semibold">Head of Business Development</p>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed" data-id="Business development expert dengan network luas di industri teknologi. Fokus pada partnership strategis dan growth hacking." data-en="Business development expert with wide network in tech industry. Focus on strategic partnerships and growth hacking.">
+                    Business development expert dengan network luas di industri teknologi. Fokus pada partnership strategis dan growth hacking.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6 justify-center">
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Strategy</span>
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Partnership</span>
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Growth</span>
+                    <span class="px-3 py-1 bg-slate-700 rounded-full text-xs font-medium">Networking</span>
+                </div>
+                <div class="flex justify-center space-x-4 pt-4 border-t border-slate-700">
+                    <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors" aria-label="Github"><span class="lucide-icon" data-lucide="github"></span></a>
+                    <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors" aria-label="LinkedIn"><span class="lucide-icon" data-lucide="linkedin"></span></a>
+                    <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors" aria-label="Twitter"><span class="lucide-icon" data-lucide="twitter"></span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-16 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-12 text-center">
+            <h2 class="text-3xl font-bold mb-4" data-id="Ingin Bergabung dengan Tim Kami?" data-en="Want to Join Our Team?">Ingin Bergabung dengan Tim Kami?</h2>
+            <p class="text-lg mb-8 opacity-90" data-id="Kami selalu mencari talenta terbaik untuk bergabung dalam misi kami" data-en="We are always looking for the best talents to join our mission">Kami selalu mencari talenta terbaik untuk bergabung dalam misi kami</p>
+            <button class="px-8 py-4 bg-white text-indigo-600 rounded-lg font-semibold hover:bg-slate-100 transition-all">
+                <span data-id="Lihat Posisi Tersedia" data-en="View Open Positions">Lihat Posisi Tersedia</span>
+            </button>
+        </div>
+    </div>
+        </section>
+
+        <!-- ======================= -->
+        <!--    HALAMAN BUILDER      -->
+        <!-- ======================= -->
+        <section id="builderPage" class="page-section py-20 min-h-screen">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 fade-in">
+                    <div class="inline-flex items-center space-x-2 bg-indigo-500/10 px-4 py-2 rounded-full border border-indigo-500/20 mb-4">
+                        <span class="lucide-icon w-4 h-4 text-indigo-400" data-lucide="sparkles"></span>
+                        <span class="text-sm text-indigo-300" data-id="Didukung oleh AI" data-en="Powered by AI">Didukung oleh AI</span>
                     </div>
-                    <div class="portfolio-card animate-on-scroll">
-                        <img src="https://via.placeholder.com/400x250/6366f1/ffffff?text=Laundry+System" alt="Laundry System">
-                        <div class="portfolio-content">
-                            <h3 data-en="Laundry Management System" data-id="Sistem Manajemen Laundry">Sistem Manajemen Laundry</h3>
-                            <p data-en="Cashier and management app for laundry business, tracking order status and financial reports." data-id="Aplikasi kasir dan manajemen untuk bisnis laundry, melacak status pesanan dan laporan keuangan.">Aplikasi kasir dan manajemen untuk bisnis laundry, melacak status pesanan dan laporan keuangan.</p>
+                    <h1 class="text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+                        <span data-id="Web Builder AI" data-en="AI Web Builder">Web Builder AI</span>
+                    </h1>
+                    <p class="text-xl text-slate-400 max-w-3xl mx-auto" data-id="Buat website impian Anda dalam hitungan menit dengan bantuan AI" data-en="Create your dream website in minutes with AI assistance">
+                        Buat website impian Anda dalam hitungan menit dengan bantuan AI
+                    </p>
+                </div>
+
+                <!-- Step 1: Input Form -->
+                <div id="builderInput" class="max-w-4xl mx-auto">
+                    <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700">
+                        <!-- Website Type -->
+                        <div class="mb-8">
+                            <label class="block text-lg font-semibold mb-4" data-id="Pilih Jenis Website" data-en="Choose Website Type">Pilih Jenis Website</label>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="websiteTypeGrid">
+                                <button onclick="selectWebsiteType(this, 'landing')" class="website-type-btn p-4 rounded-lg border-2 border-slate-700 hover:border-slate-600 transition-all" data-type="landing">
+                                    <div class="text-4xl mb-2">🚀</div>
+                                    <div class="font-semibold">Landing Page</div>
+                                </button>
+                                <button onclick="selectWebsiteType(this, 'portfolio')" class="website-type-btn p-4 rounded-lg border-2 border-slate-700 hover:border-slate-600 transition-all" data-type="portfolio">
+                                    <div class="text-4xl mb-2">💼</div>
+                                    <div class="font-semibold">Portfolio</div>
+                                </button>
+                                <button onclick="selectWebsiteType(this, 'ecommerce')" class="website-type-btn p-4 rounded-lg border-2 border-slate-700 hover:border-slate-600 transition-all" data-type="ecommerce">
+                                    <div class="text-4xl mb-2">🛒</div>
+                                    <div class="font-semibold">E-Commerce</div>
+                                </button>
+                                <button onclick="selectWebsiteType(this, 'blog')" class="website-type-btn p-4 rounded-lg border-2 border-slate-700 hover:border-slate-600 transition-all" data-type="blog">
+                                    <div class="text-4xl mb-2">📝</div>
+                                    <div class="font-semibold">Blog</div>
+                                </button>
+                                <button onclick="selectWebsiteType(this, 'corporate')" class="website-type-btn p-4 rounded-lg border-2 border-slate-700 hover:border-slate-600 transition-all" data-type="corporate">
+                                    <div class="text-4xl mb-2">🏢</div>
+                                    <div class="font-semibold">Corporate</div>
+                                </button>
+                                <button onclick="selectWebsiteType(this, 'restaurant')" class="website-type-btn p-4 rounded-lg border-2 border-slate-700 hover:border-slate-600 transition-all" data-type="restaurant">
+                                    <div class="text-4xl mb-2">🍽️</div>
+                                    <div class="font-semibold">Restaurant</div>
+                                </button>
+                            </div>
                         </div>
+
+                        <!-- Company Name -->
+                        <div class="mb-8">
+                            <label for="companyNameInput" class="block text-lg font-semibold mb-4" data-id="Nama Perusahaan/Website" data-en="Company/Website Name">Nama Perusahaan/Website</label>
+                            <input
+                                type="text"
+                                id="companyNameInput"
+                                placeholder="Masukkan nama..."
+                                class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg focus:border-indigo-500 focus:outline-none"
+                            />
+                        </div>
+
+                        <!-- Color Scheme -->
+                        <div class="mb-8">
+                            <label class="block text-lg font-semibold mb-4" data-id="Pilih Skema Warna" data-en="Choose Color Scheme">Pilih Skema Warna</label>
+                            <div class="grid grid-cols-3 md:grid-cols-6 gap-4" id="colorSchemeGrid">
+                                <button onclick="selectColorScheme(this, 'blue')" class="color-scheme-btn p-4 rounded-lg border-2 border-indigo-500" data-color="blue">
+                                    <div class="flex space-x-1 mb-2"><div class="w-full h-8 rounded" style="background-color: #3B82F6"></div><div class="w-full h-8 rounded" style="background-color: #1E40AF"></div></div>
+                                    <div class="text-sm font-semibold">Blue</div>
+                                </button>
+                                <button onclick="selectColorScheme(this, 'purple')" class="color-scheme-btn p-4 rounded-lg border-2 border-slate-700 hover:border-slate-600 transition-all" data-color="purple">
+                                    <div class="flex space-x-1 mb-2"><div class="w-full h-8 rounded" style="background-color: #8B5CF6"></div><div class="w-full h-8 rounded" style="background-color: #6D28D9"></div></div>
+                                    <div class="text-sm font-semibold">Purple</div>
+                                </button>
+                                <button onclick="selectColorScheme(this, 'green')" class="color-scheme-btn p-4 rounded-lg border-2 border-slate-700 hover:border-slate-600 transition-all" data-color="green">
+                                    <div class="flex space-x-1 mb-2"><div class="w-full h-8 rounded" style="background-color: #10B981"></div><div class="w-full h-8 rounded" style="background-color: #047857"></div></div>
+                                    <div class="text-sm font-semibold">Green</div>
+                                </button>
+                                <button onclick="selectColorScheme(this, 'red')" class="color-scheme-btn p-4 rounded-lg border-2 border-slate-700 hover:border-slate-600 transition-all" data-color="red">
+                                    <div class="flex space-x-1 mb-2"><div class="w-full h-8 rounded" style="background-color: #EF4444"></div><div class="w-full h-8 rounded" style="background-color: #B91C1C"></div></div>
+                                    <div class="text-sm font-semibold">Red</div>
+                                </button>
+                                <button onclick="selectColorScheme(this, 'orange')" class="color-scheme-btn p-4 rounded-lg border-2 border-slate-700 hover:border-slate-600 transition-all" data-color="orange">
+                                    <div class="flex space-x-1 mb-2"><div class="w-full h-8 rounded" style="background-color: #F59E0B"></div><div class="w-full h-8 rounded" style="background-color: #D97706"></div></div>
+                                    <div class="text-sm font-semibold">Orange</div>
+                                </button>
+                                <button onclick="selectColorScheme(this, 'pink')" class="color-scheme-btn p-4 rounded-lg border-2 border-slate-700 hover:border-slate-600 transition-all" data-color="pink">
+                                    <div class="flex space-x-1 mb-2"><div class="w-full h-8 rounded" style="background-color: #EC4899"></div><div class="w-full h-8 rounded" style="background-color: #BE185D"></div></div>
+                                    <div class="text-sm font-semibold">Pink</div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Features -->
+                        <div class="mb-8">
+                            <label class="block text-lg font-semibold mb-4" data-id="Pilih Fitur (Opsional)" data-en="Choose Features (Optional)">Pilih Fitur (Opsional)</label>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-3" id="featuresGrid">
+                                <button onclick="toggleFeature(this, 'Contact Form')" class="feature-btn px-4 py-2 rounded-lg border-2 border-slate-700 hover:border-slate-600 transition-all text-sm" data-feature="Contact Form">Contact Form</button>
+                                <button onclick="toggleFeature(this, 'Gallery')" class="feature-btn px-4 py-2 rounded-lg border-2 border-slate-700 hover:border-slate-600 transition-all text-sm" data-feature="Gallery">Gallery</button>
+                                <button onclick="toggleFeature(this, 'Testimonials')" class="feature-btn px-4 py-2 rounded-lg border-2 border-slate-700 hover:border-slate-600 transition-all text-sm" data-feature="Testimonials">Testimonials</button>
+                                <button onclick="toggleFeature(this, 'Team Section')" class="feature-btn px-4 py-2 rounded-lg border-2 border-slate-700 hover:border-slate-600 transition-all text-sm" data-feature="Team Section">Team Section</button>
+                                <button onclick="toggleFeature(this, 'Services')" class="feature-btn px-4 py-2 rounded-lg border-2 border-slate-700 hover:border-slate-600 transition-all text-sm" data-feature="Services">Services</button>
+                                <button onclick="toggleFeature(this, 'Pricing Table')" class="feature-btn px-4 py-2 rounded-lg border-2 border-slate-700 hover:border-slate-600 transition-all text-sm" data-feature="Pricing Table">Pricing Table</button>
+                                <button onclick="toggleFeature(this, 'FAQ')" class="feature-btn px-4 py-2 rounded-lg border-2 border-slate-700 hover:border-slate-600 transition-all text-sm" data-feature="FAQ">FAQ</button>
+                                <button onclick="toggleFeature(this, 'Newsletter')" class="feature-btn px-4 py-2 rounded-lg border-2 border-slate-700 hover:border-slate-600 transition-all text-sm" data-feature="Newsletter">Newsletter</button>
+                                <button onclick="toggleFeature(this, 'Blog')" class="feature-btn px-4 py-2 rounded-lg border-2 border-slate-700 hover:border-slate-600 transition-all text-sm" data-feature="Blog">Blog</button>
+                            </div>
+                        </div>
+
+                        <!-- AI Suggestion -->
+                        <div class="mb-8">
+                            <button id="aiSuggestBtn" onclick="generateWithAI()" class="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2">
+                                <span class="lucide-icon w-5 h-5" data-lucide="sparkles"></span>
+                                <span data-id="Dapatkan Saran AI" data-en="Get AI Suggestions">Dapatkan Saran AI</span>
+                            </button>
+                            <div id="aiSuggestionBox" class="hidden mt-4 p-4 bg-slate-900 rounded-lg border border-indigo-500/30">
+                                <div class="flex items-start space-x-2">
+                                    <span class="lucide-icon w-5 h-5 text-indigo-400 flex-shrink-0 mt-1" data-lucide="sparkles"></span>
+                                    <div id="aiSuggestionText" class="text-sm text-slate-300 whitespace-pre-line"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Generate Button -->
+                        <button id="generateSiteBtn" onclick="generateWebsite()" class="w-full px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2">
+                            <span class="lucide-icon w-5 h-5" data-lucide="rocket"></span>
+                            <span data-id="Generate Website" data-en="Generate Website">Generate Website</span>
+                        </button>
                     </div>
-                    <div class="portfolio-card animate-on-scroll">
-                        <img src="https://via.placeholder.com/400x250/6366f1/ffffff?text=Rumaia" alt="Rumaia Platform">
-                        <div class="portfolio-content">
-                            <h3 data-en="Rumaia Property Platform" data-id="Platform Properti Rumaia">Platform Properti "Rumaia"</h3>
-                            <p data-en="Web and blockchain-based platform connecting developers, investors, and property buyers." data-id="Platform berbasis Aplikasi dan blockchain untuk menghubungkan developer, investor, dan pembeli properti.">Platform berbasis web dan blockchain untuk menghubungkan developer, investor, dan pembeli properti.</p>
+                </div>
+
+                <!-- Step 2: Preview & Download -->
+                <div id="builderPreview" class="hidden max-w-6xl mx-auto">
+                    <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-2xl font-bold" data-id="Preview & Download" data-en="Preview & Download">Preview & Download</h2>
+                            <div class="flex space-x-4">
+                                <button onclick="showBuilderStep('input')" class="px-6 py-2 bg-slate-700 hover:bg-slate-600 rounded-lg transition-all" data-id="Edit" data-en="Edit">
+                                    Edit
+                                </button>
+                                <button onclick="downloadWebsite()" class="px-6 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all flex items-center space-x-2">
+                                    <span class="lucide-icon w-5 h-5" data-lucide="download"></span>
+                                    <span data-id="Download HTML" data-en="Download HTML">Download HTML</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Code Preview -->
+                        <div class="mb-6">
+                            <div class="bg-slate-900 rounded-lg p-4 max-h-96 overflow-auto">
+                                <pre class="text-sm text-green-400">
+                                    <code id="generatedCode"></code>
+                                </pre>
+                            </div>
+                        </div>
+
+                        <!-- Website Iframe Preview -->
+                        <div class="bg-white rounded-lg overflow-hidden border border-slate-700">
+                            <div class="bg-slate-700 px-4 py-2 flex items-center space-x-2">
+                                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                <div class="ml-4 text-sm text-slate-300">Preview</div>
+                            </div>
+                            <iframe id="websitePreview" class="w-full h-[600px] bg-white" title="Website Preview"></iframe>
+                        </div>
+
+                        <!-- Final Note -->
+                        <div class="mt-6 p-4 bg-indigo-500/10 rounded-lg border border-indigo-500/30">
+                            <div class="flex items-start space-x-2">
+                                <span class="lucide-icon w-5 h-5 text-indigo-400 flex-shrink-0 mt-1" data-lucide="sparkles"></span>
+                                <div class="text-sm text-slate-300" data-id="Website Anda siap! Download file HTML dan upload ke hosting Anda, atau hubungi kami untuk deployment profesional." data-en="Your website is ready! Download the HTML file and upload to your hosting, or contact us for professional deployment.">
+                                    Website Anda siap! Download file HTML dan upload ke hosting Anda, atau hubungi kami untuk deployment profesional.
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="team" class="team">
-            <div class="container">
-                <h2 class="section-title" data-en="The Amazing Team Behind" data-id="Tim Hebat di Balik Layar">Tim Hebat di Balik Layar</h2>
-                <div class="team-grid">
-                    <div class="team-member animate-on-scroll">
-                        <div class="team-photo-frame">
-                            <img src="https://via.placeholder.com/200/6366f1/ffffff?text=CEO" alt="CEO Photo">
-                        </div>
-                        <h3 data-en="Your Name" data-id="Nama Anda">Nama Anda</h3>
-                        <p>Lead Developer / CEO</p>
+        <!-- ======================= -->
+        <!--      HALAMAN ABOUT      -->
+        <!-- ======================= -->
+        <section id="aboutPage" class="page-section py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 fade-in">
+                    <h1 class="text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent" data-id="Tentang Kami" data-en="About Us">Tentang Kami</h1>
+                    <p class="text-xl text-slate-400 max-w-3xl mx-auto" data-id="Cerita perjalanan kami dalam membangun solusi teknologi terbaik untuk bisnis Indonesia" data-en="Our journey story in building the best technology solutions for Indonesian businesses">
+                        Cerita perjalanan kami dalam membangun solusi teknologi terbaik untuk bisnis Indonesia
+                    </p>
+                </div>
+
+                <!-- Visi & Misi -->
+                <div class="grid md:grid-cols-2 gap-8 mb-16">
+                    <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700">
+                        <span class="lucide-icon text-indigo-400 mb-4 w-12 h-12" data-lucide="target"></span>
+                        <h2 class="text-3xl font-bold mb-4" data-id="Visi Kami" data-en="Our Vision">Visi Kami</h2>
+                        <p class="text-slate-300 leading-relaxed" data-id="Menjadi perusahaan teknologi terdepan di Indonesia yang menghadirkan solusi digital inovatif dan berkualitas tinggi, memberdayakan bisnis untuk bertransformasi dan berkembang di era digital." data-en="To become the leading technology company in Indonesia that delivers innovative and high-quality digital solutions, empowering businesses to transform and thrive in the digital era.">
+                            Menjadi perusahaan teknologi terdepan di Indonesia yang menghadirkan solusi digital inovatif dan berkualitas tinggi, memberdayakan bisnis untuk bertransformasi dan berkembang di era digital.
+                        </p>
                     </div>
-                    <div class="team-member animate-on-scroll">
-                        <div class="team-photo-frame">
-                            <img src="https://via.placeholder.com/200/6366f1/ffffff?text=Designer" alt="Designer Photo">
-                        </div>
-                        <h3 data-en="Friend 1 Name" data-id="Nama Teman 1">Nama Teman 1</h3>
-                        <p>UI/UX Designer</p>
+                    <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700">
+                        <span class="lucide-icon text-purple-400 mb-4 w-12 h-12" data-lucide="rocket"></span>
+                        <h2 class="text-3xl font-bold mb-4" data-id="Misi Kami" data-en="Our Mission">Misi Kami</h2>
+                        <p class="text-slate-300 leading-relaxed" data-id="Memberikan solusi teknologi yang dapat diakses semua kalangan, mendukung UMKM dan perusahaan besar dengan layanan profesional, serta terus berinovasi menggunakan teknologi terkini." data-en="Provide technology solutions accessible to all, support SMEs and large companies with professional services, and continuously innovate using the latest technology.">
+                            Memberikan solusi teknologi yang dapat diakses semua kalangan, mendukung UMKM dan perusahaan besar dengan layanan profesional, serta terus berinovasi menggunakan teknologi terkini.
+                        </p>
                     </div>
-                    <div class="team-member animate-on-scroll">
-                        <div class="team-photo-frame">
-                            <img src="https://via.placeholder.com/200/6366f1/ffffff?text=Developer" alt="Developer Photo">
+                </div>
+
+                <!-- Values -->
+                <div class="mb-16">
+                    <h2 class="text-4xl font-bold text-center mb-12" data-id="Nilai-Nilai Kami" data-en="Our Values">Nilai-Nilai Kami</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 text-center hover:border-indigo-500 transition-all">
+                            <span class="lucide-icon text-indigo-400 mb-4 w-12 h-12 mx-auto" data-lucide="target"></span>
+                            <h3 class="text-xl font-bold mb-3" data-id="Fokus pada Kualitas" data-en="Focus on Quality">Fokus pada Kualitas</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed" data-id="Kami berkomitmen untuk memberikan solusi teknologi berkualitas tinggi yang memenuhi standar industri." data-en="We are committed to delivering high-quality technology solutions that meet industry standards.">Kami berkomitmen untuk memberikan solusi teknologi berkualitas tinggi yang memenuhi standar industri.</p>
                         </div>
-                        <h3 data-en="Friend 2 Name" data-id="Nama Teman 2">Nama Teman 2</h3>
-                        <p>Frontend Developer</p>
+                        <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 text-center hover:border-indigo-500 transition-all">
+                            <span class="lucide-icon text-indigo-400 mb-4 w-12 h-12 mx-auto" data-lucide="users"></span>
+                            <h3 class="text-xl font-bold mb-3" data-id="Kolaborasi Tim" data-en="Team Collaboration">Kolaborasi Tim</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed" data-id="Bekerja sama dengan klien sebagai partner untuk mencapai tujuan bersama." data-en="Working together with clients as partners to achieve common goals.">Bekerja sama dengan klien sebagai partner untuk mencapai tujuan bersama.</p>
+                        </div>
+                        <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 text-center hover:border-indigo-500 transition-all">
+                            <span class="lucide-icon text-indigo-400 mb-4 w-12 h-12 mx-auto" data-lucide="rocket"></span>
+                            <h3 class="text-xl font-bold mb-3" data-id="Inovasi Berkelanjutan" data-en="Continuous Innovation">Inovasi Berkelanjutan</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed" data-id="Selalu mengikuti perkembangan teknologi terbaru dan menerapkannya dalam solusi kami." data-en="Always following the latest technology developments and applying them in our solutions.">Selalu mengikuti perkembangan teknologi terbaru dan menerapkannya dalam solusi kami.</p>
+                        </div>
+                        <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 text-center hover:border-indigo-500 transition-all">
+                            <span class="lucide-icon text-indigo-400 mb-4 w-12 h-12 mx-auto" data-lucide="award"></span>
+                            <h3 class="text-xl font-bold mb-3" data-id="Kepuasan Klien" data-en="Client Satisfaction">Kepuasan Klien</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed" data-id="Kepuasan klien adalah prioritas utama kami dalam setiap proyek yang dikerjakan." data-en="Client satisfaction is our top priority in every project we undertake.">Kepuasan klien adalah prioritas utama kami dalam setiap proyek yang dikerjakan.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Milestones -->
+                <div class="mb-16">
+                    <h2 class="text-4xl font-bold text-center mb-12" data-id="Perjalanan Kami" data-en="Our Journey">Perjalanan Kami</h2>
+                    <div class="max-w-3xl mx-auto">
+                        <div class="flex items-start space-x-4 mb-8">
+                            <div class="bg-indigo-600 text-white px-4 py-2 rounded-lg font-bold whitespace-nowrap">2025</div>
+                            <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700 flex-1">
+                                <p class="text-slate-300" data-id="PT Menuju Startup didirikan oleh 6 founders" data-en="PT Menuju Startup founded by 6 founders">PT Menuju Startup didirikan oleh 6 founders</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 mb-8">
+                            <div class="bg-indigo-600 text-white px-4 py-2 rounded-lg font-bold whitespace-nowrap">2025 Q2</div>
+                            <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700 flex-1">
+                                <p class="text-slate-300" data-id="Meluncurkan 10 proyek pertama" data-en="Launched first 10 projects">Meluncurkan 10 proyek pertama</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 mb-8">
+                            <div class="bg-indigo-600 text-white px-4 py-2 rounded-lg font-bold whitespace-nowrap">2025 Q3</div>
+                            <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700 flex-1">
+                                <p class="text-slate-300" data-id="Membangun tim 20+ profesional" data-en="Built team of 20+ professionals">Membangun tim 20+ profesional</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 mb-8">
+                            <div class="bg-indigo-600 text-white px-4 py-2 rounded-lg font-bold whitespace-nowrap">2025 Q4</div>
+                            <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700 flex-1">
+                                <p class="text-slate-300" data-id="Ekspansi ke layanan AI & Machine Learning" data-en="Expansion to AI & Machine Learning services">Ekspansi ke layanan AI & Machine Learning</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-12 text-center">
+                    <h2 class="text-3xl font-bold mb-4" data-id="Mari Berkembang Bersama" data-en="Let's Grow Together">Mari Berkembang Bersama</h2>
+                    <p class="text-lg mb-8 opacity-90" data-id="Hubungi kami dan mulai perjalanan digital Anda hari ini" data-en="Contact us and start your digital journey today">Hubungi kami dan mulai perjalanan digital Anda hari ini</p>
+                    <button onclick="navigateTo('contact')" class="px-8 py-4 bg-white text-indigo-600 rounded-lg font-semibold hover:bg-slate-100 transition-all">
+                        <span data-id="Hubungi Kami" data-en="Contact Us">Hubungi Kami</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ======================= -->
+        <!--     HALAMAN CONTACT     -->
+        <!-- ======================= -->
+        <section id="contactPage" class="page-section py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 fade-in">
+                    <h1 class="text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent" data-id="Hubungi Kami" data-en="Contact Us">Hubungi Kami</h1>
+                    <p class="text-xl text-slate-400 max-w-3xl mx-auto" data-id="Punya proyek dalam pikiran? Mari diskusikan bagaimana kami dapat membantu mewujudkannya" data-en="Have a project in mind? Let's discuss how we can help bring it to life">
+                        Punya proyek dalam pikiran? Mari diskusikan bagaimana kami dapat membantu mewujudkannya
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700">
+                        <h2 class="text-2xl font-bold mb-6" data-id="Kirim Pesan" data-en="Send Message">Kirim Pesan</h2>
+                        
+                        <!-- Form Success Message -->
+                        <div id="formSuccess" class="hidden bg-green-500/10 border border-green-500/30 rounded-lg p-6 text-center">
+                            <div class="text-5xl mb-4">✅</div>
+                            <h3 class="text-xl font-bold text-green-400 mb-2" data-id="Pesan Terkirim!" data-en="Message Sent!">
+                                Pesan Terkirim!
+                            </h3>
+                            <p class="text-slate-300" data-id="Terima kasih! Kami akan segera menghubungi Anda." data-en="Thank you! We will contact you soon.">
+                                Terima kasih! Kami akan segera menghubungi Anda.
+                            </p>
+                        </div>
+
+                        <!-- Form -->
+                        <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium mb-2" data-id="Nama Lengkap" data-en="Full Name">Nama Lengkap</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    required
+                                    class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg focus:border-indigo-500 focus:outline-none"
+                                    placeholder="Masukkan nama Anda"
+                                />
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    required
+                                    class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg focus:border-indigo-500 focus:outline-none"
+                                    placeholder="nama@email.com"
+                                />
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium mb-2" data-id="Nomor Telepon" data-en="Phone Number">Nomor Telepon</label>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg focus:border-indigo-500 focus:outline-none"
+                                    placeholder="+62 812-3456-7890"
+                                />
+                            </div>
+                            <div>
+                                <label for="company" class="block text-sm font-medium mb-2" data-id="Nama Perusahaan" data-en="Company Name">Nama Perusahaan</label>
+                                <input
+                                    type="text"
+                                    id="company"
+                                    class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg focus:border-indigo-500 focus:outline-none"
+                                    placeholder="Opsional"
+                                />
+                            </div>
+                            <div>
+                                <label for="service" class="block text-sm font-medium mb-2" data-id="Layanan yang Dibutuhkan" data-en="Service Needed">Layanan yang Dibutuhkan</label>
+                                <select
+                                    id="service"
+                                    required
+                                    class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg focus:border-indigo-500 focus:outline-none"
+                                >
+                                    <option value="" data-id="Pilih layanan..." data-en="Select service...">Pilih layanan...</option>
+                                    <option value="web">Web Development</option>
+                                    <option value="mobile">Mobile App Development</option>
+                                    <option value="uiux">UI/UX Design</option>
+                                    <option value="backend">Backend Development</option>
+                                    <option value="consulting">IT Consulting</option>
+                                    <option value="other" data-id="Lainnya" data-en="Other">Lainnya</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium mb-2" data-id="Pesan" data-en="Message">Pesan</label>
+                                <textarea
+                                    id="message"
+                                    required
+                                    rows="4"
+                                    class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg focus:border-indigo-500 focus:outline-none resize-none"
+                                    placeholder="Ceritakan tentang proyek Anda..."
+                                ></textarea>
+                            </div>
+                            <button
+                                type="submit"
+                                class="w-full px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all flex items-center justify-center space-x-2"
+                            >
+                                <span class="lucide-icon w-5 h-5" data-lucide="mail"></span>
+                                <span data-id="Kirim Pesan" data-en="Send Message">Kirim Pesan</span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info & Hours -->
+                    <div>
+                        <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700 mb-8">
+                            <h2 class="text-2xl font-bold mb-6" data-id="Informasi Kontak" data-en="Contact Information">Informasi Kontak</h2>
+                            <div class="space-y-6">
+                                <div class="flex items-start space-x-4">
+                                    <span class="lucide-icon text-indigo-400 mt-1 w-6 h-6" data-lucide="mail"></span>
+                                    <div>
+                                        <div class="font-semibold mb-1">Email</div>
+                                        <a href="mailto:hello@menujustartup.com" class="text-slate-400 hover:text-indigo-400 transition-colors">hello@menujustartup.com</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <span class="lucide-icon text-indigo-400 mt-1 w-6 h-6" data-lucide="phone"></span>
+                                    <div>
+                                        <div class="font-semibold mb-1" data-id="Telepon" data-en="Phone">Telepon</div>
+                                        <a href="tel:+6281234567890" class="text-slate-400 hover:text-indigo-400 transition-colors">+62 812-3456-7890</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <span class="lucide-icon text-indigo-400 mt-1 w-6 h-6" data-lucide="map-pin"></span>
+                                    <div>
+                                        <div class="font-semibold mb-1" data-id="Alamat" data-en="Address">Alamat</div>
+                                        <div class="text-slate-400" data-id="Jakarta Barat, Jakarta, Indonesia" data-en="West Jakarta, Jakarta, Indonesia">Jakarta Barat, Jakarta, Indonesia</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700">
+                            <h2 class="text-2xl font-bold mb-6" data-id="Jam Operasional" data-en="Business Hours">Jam Operasional</h2>
+                            <div class="space-y-3 text-slate-400">
+                                <div class="flex justify-between">
+                                    <span data-id="Senin - Jumat" data-en="Monday - Friday">Senin - Jumat</span>
+                                    <span class="font-semibold text-slate-300">09:00 - 18:00</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span data-id="Sabtu" data-en="Saturday">Sabtu</span>
+                                    <span class="font-semibold text-slate-300">09:00 - 15:00</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span data-id="Minggu" data-en="Sunday">Minggu</span>
+                                    <span class="font-semibold text-red-400" data-id="Tutup" data-en="Closed">Tutup</span>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-6 border-t border-slate-700">
+                                <p class="text-sm text-slate-400" data-id="Untuk kebutuhan urgent, silakan hubungi nomor telepon kami." data-en="For urgent needs, please call our phone number.">
+                                    Untuk kebutuhan urgent, silakan hubungi nomor telepon kami.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Placeholder -->
+                <div class="mt-16 bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700">
+                    <div class="p-8">
+                        <h2 class="text-3xl font-bold mb-4 text-center" data-id="Lokasi Kami" data-en="Our Location">Lokasi Kami</h2>
+                        <p class="text-center text-slate-400 mb-8" data-id="Kunjungi kantor kami atau hubungi untuk membuat janji temu" data-en="Visit our office or contact us to make an appointment">
+                            Kunjungi kantor kami atau hubungi untuk membuat janji temu
+                        </p>
+                    </div>
+                    <div class="h-96 bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center">
+                        <div class="text-center">
+                            <span class="lucide-icon text-indigo-400 mx-auto mb-4 w-16 h-16" data-lucide="map-pin"></span>
+                            <p class="text-xl font-semibold" data-id="Jakarta Barat, Jakarta" data-en="West Jakarta, Jakarta">Jakarta Barat, Jakarta</p>
+                            <p class="text-slate-400 mt-2">Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ -->
+                <div class="mt-16">
+                    <h2 class="text-4xl font-bold text-center mb-12" data-id="Pertanyaan Umum" data-en="Frequently Asked Questions">Pertanyaan Umum</h2>
+                    <div class="max-w-3xl mx-auto space-y-4">
+                        <details class="bg-slate-800/50 rounded-lg border border-slate-700 overflow-hidden">
+                            <summary class="px-6 py-4 font-semibold cursor-pointer hover:bg-slate-700/50 transition-colors flex justify-between items-center">
+                                <span data-id="Berapa lama waktu pengerjaan proyek?" data-en="How long does project development take?">Berapa lama waktu pengerjaan proyek?</span>
+                                <span class="lucide-icon w-5 h-5 chevron-icon transition-transform" data-lucide="chevron-right"></span>
+                            </summary>
+                            <div class="px-6 pb-4 text-slate-400" data-id="Waktu pengerjaan bervariasi tergantung kompleksitas proyek, mulai dari 2 minggu hingga 3 bulan." data-en="Development time varies depending on project complexity, from 2 weeks to 3 months.">
+                                Waktu pengerjaan bervariasi tergantung kompleksitas proyek, mulai dari 2 minggu hingga 3 bulan.
+                            </div>
+                        </details>
+                        <details class="bg-slate-800/50 rounded-lg border border-slate-700 overflow-hidden">
+                            <summary class="px-6 py-4 font-semibold cursor-pointer hover:bg-slate-700/50 transition-colors flex justify-between items-center">
+                                <span data-id="Apakah ada garansi untuk proyek yang dikerjakan?" data-en="Is there a guarantee for completed projects?">Apakah ada garansi untuk proyek yang dikerjakan?</span>
+                                <span class="lucide-icon w-5 h-5 chevron-icon transition-transform" data-lucide="chevron-right"></span>
+                            </summary>
+                            <div class="px-6 pb-4 text-slate-400" data-id="Ya, kami memberikan garansi maintenance 3 bulan untuk semua proyek yang kami kerjakan." data-en="Yes, we provide 3 months maintenance guarantee for all projects we complete.">
+                                Ya, kami memberikan garansi maintenance 3 bulan untuk semua proyek yang kami kerjakan.
+                            </div>
+                        </details>
+                        <details class="bg-slate-800/50 rounded-lg border border-slate-700 overflow-hidden">
+                            <summary class="px-6 py-4 font-semibold cursor-pointer hover:bg-slate-700/50 transition-colors flex justify-between items-center">
+                                <span data-id="Apakah bisa konsultasi dulu sebelum mulai proyek?" data-en="Can I consult before starting a project?">Apakah bisa konsultasi dulu sebelum mulai proyek?</span>
+                                <span class="lucide-icon w-5 h-5 chevron-icon transition-transform" data-lucide="chevron-right"></span>
+                            </summary>
+                            <div class="px-6 pb-4 text-slate-400" data-id="Tentu! Kami menyediakan konsultasi gratis untuk membahas kebutuhan dan solusi terbaik untuk bisnis Anda." data-en="Of course! We provide free consultation to discuss needs and best solutions for your business.">
+                                Tentu! Kami menyediakan konsultasi gratis untuk membahas kebutuhan dan solusi terbaik untuk bisnis Anda.
+                            </div>
+                        </details>
+                        <details class="bg-slate-800/50 rounded-lg border border-slate-700 overflow-hidden">
+                            <summary class="px-6 py-4 font-semibold cursor-pointer hover:bg-slate-700/50 transition-colors flex justify-between items-center">
+                                <span data-id="Metode pembayaran apa yang tersedia?" data-en="What payment methods are available?">Metode pembayaran apa yang tersedia?</span>
+                                <span class="lucide-icon w-5 h-5 chevron-icon transition-transform" data-lucide="chevron-right"></span>
+                            </summary>
+                            <div class="px-6 pb-4 text-slate-400" data-id="Kami menerima transfer bank, e-wallet, dan cicilan untuk proyek tertentu. Hubungi kami untuk detail lebih lanjut." data-en="We accept bank transfer, e-wallet, and installments for certain projects. Contact us for more details.">
+                                Kami menerima transfer bank, e-wallet, dan cicilan untuk proyek tertentu. Hubungi kami untuk detail lebih lanjut.
+                            </div>
+                        </details>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="about">
-            <div class="container">
-                <div class="about-content animate-on-scroll">
-                    <h2 class="section-title" data-en="About Us" data-id="Tentang Kami">Tentang Kami</h2>
-                    <p data-en="Founded in 2025 by a group of passionate IT professionals. Our vision is to become a catalyst for digital transformation for SMEs and companies in Indonesia. We believe technology is the key to unlocking unlimited business potential." data-id="Didirikan pada tahun 2025 oleh sekelompok profesional IT yang bersemangat. Visi kami adalah menjadi katalisator transformasi digital bagi UMKM dan perusahaan di Indonesia. Kami percaya teknologi adalah kunci untuk membuka potensi bisnis yang tak terbatas.">Didirikan pada tahun 2025 oleh sekelompok profesional IT yang bersemangat. Visi kami adalah menjadi katalisator transformasi digital bagi UMKM dan perusahaan di Indonesia. Kami percaya teknologi adalah kunci untuk membuka potensi bisnis yang tak terbatas.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact">
-            <div class="container">
-                <div class="contact-content animate-on-scroll">
-                    <h2 class="section-title" data-en="Contact Us" data-id="Hubungi Kami">Hubungi Kami</h2>
-                    <p data-en="Ready to start your project? Let's talk!" data-id="Siap untuk memulai proyek Anda? Mari kita bicara!">Siap untuk memulai proyek Anda? Mari kita bicara!</p>
-                    <div class="contact-info">
-                        <p><strong>Email:</strong> hello@menujustartup.com</p>
-                        <p><strong data-en="Phone" data-id="Telepon">Telepon:</strong> +62 812-3456-7890</p>
-                        <p><strong data-en="Address" data-id="Alamat">Alamat:</strong> <span data-en="West Jakarta, Jakarta, Indonesia" data-id="Jakarta Barat, Jakarta, Indonesia">Jakarta Barat, Jakarta, Indonesia</span></p>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 PT Menuju Startup. All Rights Reserved.</p>
+    <!-- ======================= -->
+    <!--         FOOTER          -->
+    <!-- ======================= -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Kolom 1: Logo & Desc -->
+                <div>
+                    <h3 class="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent mb-4">
+                        Menuju Startup
+                    </h3>
+                    <p class="text-slate-400 text-sm" data-id="Partner teknologi terpercaya untuk transformasi digital bisnis Anda." data-en="Your trusted technology partner for digital transformation.">
+                        Partner teknologi terpercaya untuk transformasi digital bisnis Anda.
+                    </p>
+                </div>
+                <!-- Kolom 2: Navigasi -->
+                <div>
+                    <h4 class="font-semibold mb-4" data-id="Navigasi" data-en="Navigation">Navigasi</h4>
+                    <div class="space-y-2">
+                        <button onclick="navigateTo('home')" class="block text-slate-400 hover:text-indigo-400 text-sm">Home</button>
+                        <button onclick="navigateTo('services')" class="block text-slate-400 hover:text-indigo-400 text-sm" data-id="Layanan" data-en="Services">Layanan</button>
+                        <button onclick="navigateTo('portfolio')" class="block text-slate-400 hover:text-indigo-400 text-sm" data-id="Portofolio" data-en="Portfolio">Portofolio</button>
+                        <button onclick="navigateTo('team')" class="block text-slate-400 hover:text-indigo-400 text-sm" data-id="Tim" data-en="Team">Tim</button>
+                    </div>
+                </div>
+                <!-- Kolom 3: Layanan -->
+                <div>
+                    <h4 class="font-semibold mb-4" data-id="Layanan" data-en="Services">Layanan</h4>
+                    <div class="space-y-2 text-sm text-slate-400">
+                        <p>Web Development</p>
+                        <p>Mobile Apps</p>
+                        <p>UI/UX Design</p>
+                        <p>IT Consulting</p>
+                    </div>
+                </div>
+                <!-- Kolom 4: Social Media -->
+                <div>
+                    <h4 class="font-semibold mb-4" data-id="Ikuti Kami" data-en="Follow Us">Ikuti Kami</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-400 hover:text-indigo-400" aria-label="Github"><span class="lucide-icon w-5 h-5" data-lucide="github"></span></a>
+                        <a href="#" class="text-slate-400 hover:text-indigo-400" aria-label="LinkedIn"><span class="lucide-icon w-5 h-5" data-lucide="linkedin"></span></a>
+                        <a href="#" class="text-slate-400 hover:text-indigo-400" aria-label="Twitter"><span class="lucide-icon w-5 h-5" data-lucide="twitter"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 mt-8 pt-8 text-center text-slate-400 text-sm">
+                <p>&copy; 2025 PT Menuju Startup. All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
 
+   
     <script src="script.js"></script>
 </body>
 </html>
