@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Memuat Lucide Icons -->
     <script src="https://unpkg.com/lucide-react@latest/dist/umd/lucide-react.js"></script>
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -40,10 +41,12 @@
         }
     </script>
 </head>
+
 <body class="bg-charcoal-900 text-slate-100 overflow-x-hidden">
 
     <!-- Navbar -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-charcoal-900/95 backdrop-blur-md border-b border-charcoal-800">
+    <nav id="navbar"
+        class="fixed w-full z-50 transition-all duration-300 bg-charcoal-900/95 backdrop-blur-md border-b border-charcoal-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
@@ -53,48 +56,81 @@
                         Menuju<span class="text-charcoal-400">Startup</span>
                     </span>
                 </button>
-                
+
                 <!-- Navigasi Desktop -->
                 <div id="navLinks" class="hidden md:flex items-center space-x-8">
-                    <button onclick="navigateTo('home')" class="nav-link text-sm font-medium text-charcoal-300 hover:text-charcoal-100 transition-colors" data-page="home">Home</button>
-                    <button onclick="navigateTo('services')" class="nav-link text-sm font-medium text-charcoal-300 hover:text-charcoal-100 transition-colors" data-page="services" data-id="Layanan" data-en="Services">Layanan</button>
-                    <button onclick="navigateTo('portfolio')" class="nav-link text-sm font-medium text-charcoal-300 hover:text-charcoal-100 transition-colors" data-page="portfolio" data-id="Portofolio" data-en="Portfolio">Portofolio</button>
-                    <button onclick="navigateTo('team')" class="nav-link text-sm font-medium text-charcoal-300 hover:text-charcoal-100 transition-colors" data-page="team" data-id="Tim" data-en="Team">Tim</button>
-                    <button onclick="navigateTo('builder')" class="nav-link text-sm font-medium text-charcoal-300 hover:text-charcoal-100 transition-colors" data-page="builder">Web Builder</button>
-                    <button onclick="navigateTo('about')" class="nav-link text-sm font-medium text-charcoal-300 hover:text-charcoal-100 transition-colors" data-page="about" data-id="Tentang" data-en="About">Tentang</button>
-                    <button onclick="navigateTo('contact')" class="nav-link text-sm font-medium text-charcoal-300 hover:text-charcoal-100 transition-colors" data-page="contact" data-id="Kontak" data-en="Contact">Kontak</button>
-                    <button onclick="toggleLanguage()" class="px-4 py-2 text-sm font-semibold bg-charcoal-800 hover:bg-charcoal-700 rounded-lg transition-all border border-charcoal-700">
+                    <button onclick="navigateTo('home')"
+                        class="nav-link text-sm font-medium text-charcoal-300 hover:text-charcoal-100 transition-colors"
+                        data-page="home">Home</button>
+                    <button onclick="navigateTo('services')"
+                        class="nav-link text-sm font-medium text-charcoal-300 hover:text-charcoal-100 transition-colors"
+                        data-page="services" data-id="Layanan" data-en="Services">Layanan</button>
+                    <button onclick="navigateTo('portfolio')"
+                        class="nav-link text-sm font-medium text-charcoal-300 hover:text-charcoal-100 transition-colors"
+                        data-page="portfolio" data-id="Portofolio" data-en="Portfolio">Portofolio</button>
+                    <button onclick="navigateTo('team')"
+                        class="nav-link text-sm font-medium text-charcoal-300 hover:text-charcoal-100 transition-colors"
+                        data-page="team" data-id="Tim" data-en="Team">Tim</button>
+                    <button onclick="navigateTo('builder')"
+                        class="nav-link text-sm font-medium text-charcoal-300 hover:text-charcoal-100 transition-colors"
+                        data-page="builder">Web Builder</button>
+                    <button onclick="navigateTo('about')"
+                        class="nav-link text-sm font-medium text-charcoal-300 hover:text-charcoal-100 transition-colors"
+                        data-page="about" data-id="Tentang" data-en="About">Tentang</button>
+                    <button onclick="navigateTo('contact')"
+                        class="nav-link text-sm font-medium text-charcoal-300 hover:text-charcoal-100 transition-colors"
+                        data-page="contact" data-id="Kontak" data-en="Contact">Kontak</button>
+                    <button onclick="toggleLanguage()"
+                        class="px-4 py-2 text-sm font-semibold bg-charcoal-800 hover:bg-charcoal-700 rounded-lg transition-all border border-charcoal-700">
                         <span id="langBtn">EN</span>
                     </button>
                 </div>
 
                 <!-- Tombol Menu Mobile -->
                 <button onclick="toggleMobileMenu()" class="md:hidden" aria-label="Toggle mobile menu">
-                    <svg id="menuIcon" class="w-6 h-6 text-charcoal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    <svg id="menuIcon" class="w-6 h-6 text-charcoal-300" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
-                    <svg id="xIcon" class="w-6 h-6 text-charcoal-300 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    <svg id="xIcon" class="w-6 h-6 text-charcoal-300 hidden" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
                     </svg>
                 </button>
             </div>
 
             <!-- Menu Mobile (Dropdown) -->
             <div id="mobileMenu" class="hidden md:hidden pb-4 space-y-3">
-                <button onclick="navigateTo('home')" class="nav-link-mobile block w-full text-left px-4 py-2 rounded-lg hover:bg-charcoal-800 transition-colors" data-page="home">Home</button>
-                <button onclick="navigateTo('services')" class="nav-link-mobile block w-full text-left px-4 py-2 rounded-lg hover:bg-charcoal-800 transition-colors" data-page="services" data-id="Layanan" data-en="Services">Layanan</button>
-                <button onclick="navigateTo('portfolio')" class="nav-link-mobile block w-full text-left px-4 py-2 rounded-lg hover:bg-charcoal-800 transition-colors" data-page="portfolio" data-id="Portofolio" data-en="Portfolio">Portofolio</button>
-                <button onclick="navigateTo('team')" class="nav-link-mobile block w-full text-left px-4 py-2 rounded-lg hover:bg-charcoal-800 transition-colors" data-page="team" data-id="Tim" data-en="Team">Tim</button>
-                <button onclick="navigateTo('builder')" class="nav-link-mobile block w-full text-left px-4 py-2 rounded-lg hover:bg-charcoal-800 transition-colors" data-page="builder">Web Builder</button>
-                <button onclick="navigateTo('about')" class="nav-link-mobile block w-full text-left px-4 py-2 rounded-lg hover:bg-charcoal-800 transition-colors" data-page="about" data-id="Tentang" data-en="About">Tentang</button>
-                <button onclick="navigateTo('contact')" class="nav-link-mobile block w-full text-left px-4 py-2 rounded-lg hover:bg-charcoal-800 transition-colors" data-page="contact" data-id="Kontak" data-en="Contact">Kontak</button>
+                <button onclick="navigateTo('home')"
+                    class="nav-link-mobile block w-full text-left px-4 py-2 rounded-lg hover:bg-charcoal-800 transition-colors"
+                    data-page="home">Home</button>
+                <button onclick="navigateTo('services')"
+                    class="nav-link-mobile block w-full text-left px-4 py-2 rounded-lg hover:bg-charcoal-800 transition-colors"
+                    data-page="services" data-id="Layanan" data-en="Services">Layanan</button>
+                <button onclick="navigateTo('portfolio')"
+                    class="nav-link-mobile block w-full text-left px-4 py-2 rounded-lg hover:bg-charcoal-800 transition-colors"
+                    data-page="portfolio" data-id="Portofolio" data-en="Portfolio">Portofolio</button>
+                <button onclick="navigateTo('team')"
+                    class="nav-link-mobile block w-full text-left px-4 py-2 rounded-lg hover:bg-charcoal-800 transition-colors"
+                    data-page="team" data-id="Tim" data-en="Team">Tim</button>
+                <button onclick="navigateTo('builder')"
+                    class="nav-link-mobile block w-full text-left px-4 py-2 rounded-lg hover:bg-charcoal-800 transition-colors"
+                    data-page="builder">Web Builder</button>
+                <button onclick="navigateTo('about')"
+                    class="nav-link-mobile block w-full text-left px-4 py-2 rounded-lg hover:bg-charcoal-800 transition-colors"
+                    data-page="about" data-id="Tentang" data-en="About">Tentang</button>
+                <button onclick="navigateTo('contact')"
+                    class="nav-link-mobile block w-full text-left px-4 py-2 rounded-lg hover:bg-charcoal-800 transition-colors"
+                    data-page="contact" data-id="Kontak" data-en="Contact">Kontak</button>
             </div>
         </div>
     </nav>
 
     <!-- Kontainer Utama untuk Halaman -->
     <main class="pt-16">
-        
+
         <!-- ======================= -->
         <!--      HALAMAN HOME       -->
         <!-- ======================= -->
@@ -103,19 +139,32 @@
             <div class="relative min-h-screen flex items-center justify-center overflow-hidden bg-charcoal-900">
                 <!-- Background Grid -->
                 <div class="absolute inset-0 opacity-20">
-                    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 40px 40px;"></div>
+                    <div class="absolute inset-0"
+                        style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 40px 40px;">
+                    </div>
                 </div>
-                
+
                 <!-- Animated Elements -->
                 <div class="absolute top-20 left-10 w-4 h-4 bg-charcoal-400 rounded-full animate-float"></div>
-                <div class="absolute top-40 right-20 w-6 h-6 bg-charcoal-500 rounded-full animate-float" style="animation-delay: 1s;"></div>
-                <div class="absolute bottom-40 left-20 w-3 h-3 bg-charcoal-600 rounded-full animate-float" style="animation-delay: 2s;"></div>
-                
+                <div class="absolute top-40 right-20 w-6 h-6 bg-charcoal-500 rounded-full animate-float"
+                    style="animation-delay: 1s;"></div>
+                <div class="absolute bottom-40 left-20 w-3 h-3 bg-charcoal-600 rounded-full animate-float"
+                    style="animation-delay: 2s;"></div>
+
                 <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+                    <!-- Icon Startup -->
+                    <div class="flex justify-center mb-8">
+                        <img src="assets/logo-png.png" alt="Menuju Startup"
+                            class="w-64 h-64 animate-bounce-slow drop-shadow-2xl hover:scale-110 transition-transform duration-700 select-none" />
+                    </div>
+
                     <!-- Tech Badge -->
-                    <div class="inline-flex items-center space-x-2 bg-charcoal-800/80 px-6 py-3 rounded-full border border-charcoal-700 mb-8 backdrop-blur-sm">
+                    <div
+                        class="inline-flex items-center space-x-2 bg-charcoal-800/80 px-6 py-3 rounded-full border border-charcoal-700 mb-8 backdrop-blur-sm">
                         <div class="w-2 h-2 bg-charcoal-400 rounded-full animate-pulse"></div>
-                        <span class="text-sm font-medium text-charcoal-300" data-id="Transformasi Digital Dimulai Di Sini" data-en="Digital Transformation Starts Here">Transformasi Digital Dimulai Di Sini</span>
+                        <span class="text-sm font-medium text-charcoal-300"
+                            data-id="Transformasi Digital Dimulai Di Sini"
+                            data-en="Digital Transformation Starts Here">Transformasi Digital Dimulai Di Sini</span>
                     </div>
 
                     <!-- Main Heading -->
@@ -125,20 +174,29 @@
                     </h1>
 
                     <!-- Subheading -->
-                    <p class="text-xl text-charcoal-400 mb-12 max-w-3xl mx-auto leading-relaxed font-light" data-id="Kami membangun solusi teknologi yang mengubah bisnis tradisional menjadi perusahaan digital yang kompetitif di era modern." data-en="We build technology solutions that transform traditional businesses into competitive digital enterprises in the modern era.">
-                        Kami membangun solusi teknologi yang mengubah bisnis tradisional menjadi perusahaan digital yang kompetitif di era modern.
+                    <p class="text-xl text-charcoal-400 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
+                        data-id="Kami membangun solusi teknologi yang mengubah bisnis tradisional menjadi perusahaan digital yang kompetitif di era modern."
+                        data-en="We build technology solutions that transform traditional businesses into competitive digital enterprises in the modern era.">
+                        Kami membangun solusi teknologi yang mengubah bisnis tradisional menjadi perusahaan digital yang
+                        kompetitif di era modern.
                     </p>
 
                     <!-- CTA Buttons -->
                     <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                        <button onclick="navigateTo('contact')" class="group px-12 py-5 bg-charcoal-800 hover:bg-charcoal-700 rounded-xl font-semibold transition-all duration-300 border border-charcoal-700 hover:border-charcoal-600 flex items-center justify-center space-x-3 hover:scale-105">
-                            <span class="text-charcoal-100" data-id="Mulai Proyek" data-en="Start Project">Mulai Proyek</span>
-                            <span class="lucide-icon text-charcoal-400 group-hover:translate-x-1 transition-transform" data-lucide="arrow-right"></span>
+                        <button onclick="navigateTo('contact')"
+                            class="group px-12 py-5 bg-charcoal-800 hover:bg-charcoal-700 rounded-xl font-semibold transition-all duration-300 border border-charcoal-700 hover:border-charcoal-600 flex items-center justify-center space-x-3 hover:scale-105">
+                            <span class="text-charcoal-100" data-id="Mulai Proyek" data-en="Start Project">Mulai
+                                Proyek</span>
+                            <span class="lucide-icon text-charcoal-400 group-hover:translate-x-1 transition-transform"
+                                data-lucide="arrow-right"></span>
                         </button>
-                        
-                        <button onclick="navigateTo('services')" class="group px-12 py-5 bg-transparent hover:bg-charcoal-800/50 rounded-xl font-semibold transition-all duration-300 border border-charcoal-700 hover:border-charcoal-600 flex items-center justify-center space-x-3">
-                            <span class="text-charcoal-300" data-id="Jelajahi Layanan" data-en="Explore Services">Jelajahi Layanan</span>
-                            <span class="lucide-icon text-charcoal-500 group-hover:rotate-90 transition-transform" data-lucide="compass"></span>
+
+                        <button onclick="navigateTo('services')"
+                            class="group px-12 py-5 bg-transparent hover:bg-charcoal-800/50 rounded-xl font-semibold transition-all duration-300 border border-charcoal-700 hover:border-charcoal-600 flex items-center justify-center space-x-3">
+                            <span class="text-charcoal-300" data-id="Jelajahi Layanan"
+                                data-en="Explore Services">Jelajahi Layanan</span>
+                            <span class="lucide-icon text-charcoal-500 group-hover:rotate-90 transition-transform"
+                                data-lucide="compass"></span>
                         </button>
                     </div>
 
@@ -147,11 +205,13 @@
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                             <div class="text-center">
                                 <div class="text-4xl font-bold text-charcoal-100 mb-2">50+</div>
-                                <div class="text-charcoal-500 text-sm font-medium" data-id="Proyek Selesai" data-en="Projects Completed">Proyek Selesai</div>
+                                <div class="text-charcoal-500 text-sm font-medium" data-id="Proyek Selesai"
+                                    data-en="Projects Completed">Proyek Selesai</div>
                             </div>
                             <div class="text-center">
                                 <div class="text-4xl font-bold text-charcoal-100 mb-2">30+</div>
-                                <div class="text-charcoal-500 text-sm font-medium" data-id="Klien Puas" data-en="Happy Clients">Klien Puas</div>
+                                <div class="text-charcoal-500 text-sm font-medium" data-id="Klien Puas"
+                                    data-en="Happy Clients">Klien Puas</div>
                             </div>
                             <div class="text-center">
                                 <div class="text-4xl font-bold text-charcoal-100 mb-2">6</div>
@@ -159,7 +219,8 @@
                             </div>
                             <div class="text-center">
                                 <div class="text-4xl font-bold text-charcoal-100 mb-2">3+</div>
-                                <div class="text-charcoal-500 text-sm font-medium" data-id="Tahun Pengalaman" data-en="Years Experience">Tahun Pengalaman</div>
+                                <div class="text-charcoal-500 text-sm font-medium" data-id="Tahun Pengalaman"
+                                    data-en="Years Experience">Tahun Pengalaman</div>
                             </div>
                         </div>
                     </div>
@@ -170,49 +231,67 @@
             <div class="py-24 bg-charcoal-900 border-t border-charcoal-800">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-16">
-                        <h2 class="text-5xl font-black mb-6 text-charcoal-100" data-id="LAYANAN KAMI" data-en="OUR SERVICES">LAYANAN KAMI</h2>
-                        <p class="text-charcoal-400 text-lg max-w-2xl mx-auto" data-id="Solusi teknologi end-to-end untuk bisnis modern" data-en="End-to-end technology solutions for modern businesses">Solusi teknologi end-to-end untuk bisnis modern</p>
+                        <h2 class="text-5xl font-black mb-6 text-charcoal-100" data-id="LAYANAN KAMI"
+                            data-en="OUR SERVICES">LAYANAN KAMI</h2>
+                        <p class="text-charcoal-400 text-lg max-w-2xl mx-auto"
+                            data-id="Solusi teknologi end-to-end untuk bisnis modern"
+                            data-en="End-to-end technology solutions for modern businesses">Solusi teknologi end-to-end
+                            untuk bisnis modern</p>
                     </div>
-                    
+
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <!-- Web Development -->
-                        <div class="group bg-charcoal-800/30 p-8 rounded-2xl border border-charcoal-700 hover:border-charcoal-600 transition-all duration-500 hover:scale-105 cursor-pointer backdrop-blur-sm">
-                            <div class="w-14 h-14 bg-charcoal-700 rounded-xl flex items-center justify-center mb-6 group-hover:bg-charcoal-600 transition-colors">
+                        <div
+                            class="group bg-charcoal-800/30 p-8 rounded-2xl border border-charcoal-700 hover:border-charcoal-600 transition-all duration-500 hover:scale-105 cursor-pointer backdrop-blur-sm">
+                            <div
+                                class="w-14 h-14 bg-charcoal-700 rounded-xl flex items-center justify-center mb-6 group-hover:bg-charcoal-600 transition-colors">
                                 <span class="lucide-icon text-charcoal-300 w-7 h-7" data-lucide="globe"></span>
                             </div>
                             <h3 class="text-2xl font-bold text-charcoal-100 mb-4">Web Development</h3>
-                            <p class="text-charcoal-400 leading-relaxed" data-id="Website modern dengan performa optimal dan pengalaman pengguna terbaik" data-en="Modern websites with optimal performance and best user experience">
+                            <p class="text-charcoal-400 leading-relaxed"
+                                data-id="Website modern dengan performa optimal dan pengalaman pengguna terbaik"
+                                data-en="Modern websites with optimal performance and best user experience">
                                 Website modern dengan performa optimal dan pengalaman pengguna terbaik
                             </p>
                         </div>
 
                         <!-- Mobile Apps -->
-                        <div class="group bg-charcoal-800/30 p-8 rounded-2xl border border-charcoal-700 hover:border-charcoal-600 transition-all duration-500 hover:scale-105 cursor-pointer backdrop-blur-sm">
-                            <div class="w-14 h-14 bg-charcoal-700 rounded-xl flex items-center justify-center mb-6 group-hover:bg-charcoal-600 transition-colors">
+                        <div
+                            class="group bg-charcoal-800/30 p-8 rounded-2xl border border-charcoal-700 hover:border-charcoal-600 transition-all duration-500 hover:scale-105 cursor-pointer backdrop-blur-sm">
+                            <div
+                                class="w-14 h-14 bg-charcoal-700 rounded-xl flex items-center justify-center mb-6 group-hover:bg-charcoal-600 transition-colors">
                                 <span class="lucide-icon text-charcoal-300 w-7 h-7" data-lucide="smartphone"></span>
                             </div>
                             <h3 class="text-2xl font-bold text-charcoal-100 mb-4">Mobile Apps</h3>
-                            <p class="text-charcoal-400 leading-relaxed" data-id="Aplikasi mobile native dan cross-platform untuk iOS dan Android" data-en="Native and cross-platform mobile applications for iOS and Android">
+                            <p class="text-charcoal-400 leading-relaxed"
+                                data-id="Aplikasi mobile native dan cross-platform untuk iOS dan Android"
+                                data-en="Native and cross-platform mobile applications for iOS and Android">
                                 Aplikasi mobile native dan cross-platform untuk iOS dan Android
                             </p>
                         </div>
 
                         <!-- UI/UX Design -->
-                        <div class="group bg-charcoal-800/30 p-8 rounded-2xl border border-charcoal-700 hover:border-charcoal-600 transition-all duration-500 hover:scale-105 cursor-pointer backdrop-blur-sm">
-                            <div class="w-14 h-14 bg-charcoal-700 rounded-xl flex items-center justify-center mb-6 group-hover:bg-charcoal-600 transition-colors">
+                        <div
+                            class="group bg-charcoal-800/30 p-8 rounded-2xl border border-charcoal-700 hover:border-charcoal-600 transition-all duration-500 hover:scale-105 cursor-pointer backdrop-blur-sm">
+                            <div
+                                class="w-14 h-14 bg-charcoal-700 rounded-xl flex items-center justify-center mb-6 group-hover:bg-charcoal-600 transition-colors">
                                 <span class="lucide-icon text-charcoal-300 w-7 h-7" data-lucide="palette"></span>
                             </div>
                             <h3 class="text-2xl font-bold text-charcoal-100 mb-4">UI/UX Design</h3>
-                            <p class="text-charcoal-400 leading-relaxed" data-id="Desain yang intuitif dan engaging untuk pengalaman pengguna yang luar biasa" data-en="Intuitive and engaging design for exceptional user experience">
+                            <p class="text-charcoal-400 leading-relaxed"
+                                data-id="Desain yang intuitif dan engaging untuk pengalaman pengguna yang luar biasa"
+                                data-en="Intuitive and engaging design for exceptional user experience">
                                 Desain yang intuitif dan engaging untuk pengalaman pengguna yang luar biasa
                             </p>
                         </div>
                     </div>
 
                     <div class="text-center mt-12">
-                        <button onclick="navigateTo('services')" class="text-charcoal-300 hover:text-charcoal-100 font-semibold flex items-center justify-center mx-auto space-x-2 group">
+                        <button onclick="navigateTo('services')"
+                            class="text-charcoal-300 hover:text-charcoal-100 font-semibold flex items-center justify-center mx-auto space-x-2 group">
                             <span data-id="Lihat Semua Layanan" data-en="View All Services">Lihat Semua Layanan</span>
-                            <span class="lucide-icon w-5 h-5 group-hover:translate-x-1 transition-transform" data-lucide="arrow-right"></span>
+                            <span class="lucide-icon w-5 h-5 group-hover:translate-x-1 transition-transform"
+                                data-lucide="arrow-right"></span>
                         </button>
                     </div>
                 </div>
@@ -222,13 +301,17 @@
             <div class="py-20 bg-charcoal-900 border-t border-charcoal-800">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-16">
-                        <h2 class="text-5xl font-black mb-6 text-charcoal-100" data-id="TEKNOLOGI KAMI" data-en="OUR TECH">TEKNOLOGI KAMI</h2>
-                        <p class="text-charcoal-400 text-lg" data-id="Menggunakan teknologi terdepan untuk solusi yang scalable dan maintainable" data-en="Using cutting-edge technology for scalable and maintainable solutions">
+                        <h2 class="text-5xl font-black mb-6 text-charcoal-100" data-id="TEKNOLOGI KAMI"
+                            data-en="OUR TECH">TEKNOLOGI KAMI</h2>
+                        <p class="text-charcoal-400 text-lg"
+                            data-id="Menggunakan teknologi terdepan untuk solusi yang scalable dan maintainable"
+                            data-en="Using cutting-edge technology for scalable and maintainable solutions">
                             Menggunakan teknologi terdepan untuk solusi yang scalable dan maintainable
                         </p>
                     </div>
-                    
-                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center opacity-60">
+
+                    <div
+                        class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center opacity-60">
                         <div class="text-3xl font-bold text-charcoal-400">React</div>
                         <div class="text-3xl font-bold text-charcoal-400">Node.js</div>
                         <div class="text-3xl font-bold text-charcoal-400">Flutter</div>
@@ -246,20 +329,27 @@
         <section id="servicesPage" class="page-section py-20 bg-charcoal-900">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 fade-in">
-                    <h1 class="text-6xl font-black mb-6 text-charcoal-100" data-id="LAYANAN" data-en="SERVICES">LAYANAN</h1>
-                    <p class="text-xl text-charcoal-400 max-w-3xl mx-auto" data-id="Solusi teknologi lengkap untuk mengembangkan bisnis Anda ke level berikutnya" data-en="Complete technology solutions to take your business to the next level">
+                    <h1 class="text-6xl font-black mb-6 text-charcoal-100" data-id="LAYANAN" data-en="SERVICES">LAYANAN
+                    </h1>
+                    <p class="text-xl text-charcoal-400 max-w-3xl mx-auto"
+                        data-id="Solusi teknologi lengkap untuk mengembangkan bisnis Anda ke level berikutnya"
+                        data-en="Complete technology solutions to take your business to the next level">
                         Solusi teknologi lengkap untuk mengembangkan bisnis Anda ke level berikutnya
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Web Development -->
-                    <div class="group bg-charcoal-800/30 p-8 rounded-2xl border border-charcoal-700 hover:border-charcoal-600 transition-all duration-500 backdrop-blur-sm">
-                        <div class="w-16 h-16 bg-charcoal-700 rounded-xl flex items-center justify-center mb-6 group-hover:bg-charcoal-600 transition-colors">
+                    <div
+                        class="group bg-charcoal-800/30 p-8 rounded-2xl border border-charcoal-700 hover:border-charcoal-600 transition-all duration-500 backdrop-blur-sm">
+                        <div
+                            class="w-16 h-16 bg-charcoal-700 rounded-xl flex items-center justify-center mb-6 group-hover:bg-charcoal-600 transition-colors">
                             <span class="lucide-icon text-charcoal-300 w-8 h-8" data-lucide="globe"></span>
                         </div>
                         <h3 class="text-2xl font-bold text-charcoal-100 mb-4">Web Development</h3>
-                        <p class="text-charcoal-400 mb-6 leading-relaxed" data-id="Pembuatan website profesional dengan teknologi terkini seperti React, Next.js, dan Node.js." data-en="Professional website development with latest technologies like React, Next.js, and Node.js.">
+                        <p class="text-charcoal-400 mb-6 leading-relaxed"
+                            data-id="Pembuatan website profesional dengan teknologi terkini seperti React, Next.js, dan Node.js."
+                            data-en="Professional website development with latest technologies like React, Next.js, and Node.js.">
                             Pembuatan website profesional dengan teknologi terkini seperti React, Next.js, dan Node.js.
                         </p>
                         <div class="space-y-3">
@@ -279,13 +369,18 @@
                     </div>
 
                     <!-- Mobile App Development -->
-                    <div class="group bg-charcoal-800/30 p-8 rounded-2xl border border-charcoal-700 hover:border-charcoal-600 transition-all duration-500 backdrop-blur-sm">
-                        <div class="w-16 h-16 bg-charcoal-700 rounded-xl flex items-center justify-center mb-6 group-hover:bg-charcoal-600 transition-colors">
+                    <div
+                        class="group bg-charcoal-800/30 p-8 rounded-2xl border border-charcoal-700 hover:border-charcoal-600 transition-all duration-500 backdrop-blur-sm">
+                        <div
+                            class="w-16 h-16 bg-charcoal-700 rounded-xl flex items-center justify-center mb-6 group-hover:bg-charcoal-600 transition-colors">
                             <span class="lucide-icon text-charcoal-300 w-8 h-8" data-lucide="smartphone"></span>
                         </div>
                         <h3 class="text-2xl font-bold text-charcoal-100 mb-4">Mobile App Development</h3>
-                        <p class="text-charcoal-400 mb-6 leading-relaxed" data-id="Aplikasi mobile native dan cross-platform untuk iOS dan Android menggunakan Flutter dan React Native." data-en="Native and cross-platform mobile applications for iOS and Android using Flutter and React Native.">
-                            Aplikasi mobile native dan cross-platform untuk iOS dan Android menggunakan Flutter dan React Native.
+                        <p class="text-charcoal-400 mb-6 leading-relaxed"
+                            data-id="Aplikasi mobile native dan cross-platform untuk iOS dan Android menggunakan Flutter dan React Native."
+                            data-en="Native and cross-platform mobile applications for iOS and Android using Flutter and React Native.">
+                            Aplikasi mobile native dan cross-platform untuk iOS dan Android menggunakan Flutter dan
+                            React Native.
                         </p>
                         <div class="space-y-3">
                             <div class="flex items-center space-x-3 text-sm">
@@ -304,12 +399,16 @@
                     </div>
 
                     <!-- UI/UX Design -->
-                    <div class="group bg-charcoal-800/30 p-8 rounded-2xl border border-charcoal-700 hover:border-charcoal-600 transition-all duration-500 backdrop-blur-sm">
-                        <div class="w-16 h-16 bg-charcoal-700 rounded-xl flex items-center justify-center mb-6 group-hover:bg-charcoal-600 transition-colors">
+                    <div
+                        class="group bg-charcoal-800/30 p-8 rounded-2xl border border-charcoal-700 hover:border-charcoal-600 transition-all duration-500 backdrop-blur-sm">
+                        <div
+                            class="w-16 h-16 bg-charcoal-700 rounded-xl flex items-center justify-center mb-6 group-hover:bg-charcoal-600 transition-colors">
                             <span class="lucide-icon text-charcoal-300 w-8 h-8" data-lucide="palette"></span>
                         </div>
                         <h3 class="text-2xl font-bold text-charcoal-100 mb-4">UI/UX Design</h3>
-                        <p class="text-charcoal-400 mb-6 leading-relaxed" data-id="Desain interface yang intuitif dan user-friendly dengan pendekatan user-centered design." data-en="Intuitive and user-friendly interface design with user-centered design approach.">
+                        <p class="text-charcoal-400 mb-6 leading-relaxed"
+                            data-id="Desain interface yang intuitif dan user-friendly dengan pendekatan user-centered design."
+                            data-en="Intuitive and user-friendly interface design with user-centered design approach.">
                             Desain interface yang intuitif dan user-friendly dengan pendekatan user-centered design.
                         </p>
                         <div class="space-y-3">
@@ -331,9 +430,14 @@
 
                 <!-- CTA -->
                 <div class="mt-16 bg-charcoal-800/50 rounded-2xl p-12 text-center border border-charcoal-700">
-                    <h2 class="text-3xl font-bold mb-4 text-charcoal-100" data-id="Punya Proyek dalam Pikiran?" data-en="Have a Project in Mind?">Punya Proyek dalam Pikiran?</h2>
-                    <p class="text-lg mb-8 text-charcoal-400" data-id="Mari diskusikan bagaimana kami dapat membantu mewujudkan ide Anda" data-en="Let's discuss how we can help bring your ideas to life">Mari diskusikan bagaimana kami dapat membantu mewujudkan ide Anda</p>
-                    <button onclick="navigateTo('contact')" class="px-8 py-4 bg-charcoal-700 hover:bg-charcoal-600 text-charcoal-100 rounded-xl font-semibold transition-all border border-charcoal-600">
+                    <h2 class="text-3xl font-bold mb-4 text-charcoal-100" data-id="Punya Proyek dalam Pikiran?"
+                        data-en="Have a Project in Mind?">Punya Proyek dalam Pikiran?</h2>
+                    <p class="text-lg mb-8 text-charcoal-400"
+                        data-id="Mari diskusikan bagaimana kami dapat membantu mewujudkan ide Anda"
+                        data-en="Let's discuss how we can help bring your ideas to life">Mari diskusikan bagaimana kami
+                        dapat membantu mewujudkan ide Anda</p>
+                    <button onclick="navigateTo('contact')"
+                        class="px-8 py-4 bg-charcoal-700 hover:bg-charcoal-600 text-charcoal-100 rounded-xl font-semibold transition-all border border-charcoal-600">
                         <span data-id="Hubungi Kami" data-en="Contact Us">Hubungi Kami</span>
                     </button>
                 </div>
@@ -346,54 +450,75 @@
         <section id="portfolioPage" class="page-section py-20 bg-charcoal-900">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 fade-in">
-                    <h1 class="text-6xl font-black mb-6 text-charcoal-100" data-id="PORTOFOLIO" data-en="PORTFOLIO">PORTOFOLIO</h1>
-                    <p class="text-xl text-charcoal-400 max-w-3xl mx-auto" data-id="Proyek-proyek yang telah kami kerjakan dengan dedikasi dan keahlian tinggi" data-en="Projects we have completed with dedication and high expertise">
+                    <h1 class="text-6xl font-black mb-6 text-charcoal-100" data-id="PORTOFOLIO" data-en="PORTFOLIO">
+                        PORTOFOLIO</h1>
+                    <p class="text-xl text-charcoal-400 max-w-3xl mx-auto"
+                        data-id="Proyek-proyek yang telah kami kerjakan dengan dedikasi dan keahlian tinggi"
+                        data-en="Projects we have completed with dedication and high expertise">
                         Proyek-proyek yang telah kami kerjakan dengan dedikasi dan keahlian tinggi
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Project 1: Cinelux -->
-                    <div class="group bg-charcoal-800/30 rounded-2xl overflow-hidden border border-charcoal-700 hover:border-charcoal-600 transition-all duration-500 hover:scale-105 cursor-pointer backdrop-blur-sm">
+                    <div
+                        class="group bg-charcoal-800/30 rounded-2xl overflow-hidden border border-charcoal-700 hover:border-charcoal-600 transition-all duration-500 hover:scale-105 cursor-pointer backdrop-blur-sm">
                         <div class="h-48 bg-charcoal-800 flex items-center justify-center text-6xl">🎬</div>
                         <div class="p-6">
                             <div class="text-charcoal-400 text-sm font-semibold mb-2">Mobile App</div>
                             <h3 class="text-2xl font-bold mb-2 text-charcoal-100">Cinelux</h3>
-                            <p class="text-charcoal-400 mb-4" data-id="Aplikasi booking tiket bioskop dengan Flutter" data-en="Cinema ticket booking app with Flutter">Aplikasi booking tiket bioskop dengan Flutter</p>
+                            <p class="text-charcoal-400 mb-4" data-id="Aplikasi booking tiket bioskop dengan Flutter"
+                                data-en="Cinema ticket booking app with Flutter">Aplikasi booking tiket bioskop dengan
+                                Flutter</p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-charcoal-700 rounded-full text-xs font-medium text-charcoal-300">Flutter</span>
-                                <span class="px-3 py-1 bg-charcoal-700 rounded-full text-xs font-medium text-charcoal-300">Firebase</span>
-                                <span class="px-3 py-1 bg-charcoal-700 rounded-full text-xs font-medium text-charcoal-300">Payment Gateway</span>
+                                <span
+                                    class="px-3 py-1 bg-charcoal-700 rounded-full text-xs font-medium text-charcoal-300">Flutter</span>
+                                <span
+                                    class="px-3 py-1 bg-charcoal-700 rounded-full text-xs font-medium text-charcoal-300">Firebase</span>
+                                <span
+                                    class="px-3 py-1 bg-charcoal-700 rounded-full text-xs font-medium text-charcoal-300">Payment
+                                    Gateway</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Project 2: LaundryPro -->
-                    <div class="group bg-charcoal-800/30 rounded-2xl overflow-hidden border border-charcoal-700 hover:border-charcoal-600 transition-all duration-500 hover:scale-105 cursor-pointer backdrop-blur-sm">
+                    <div
+                        class="group bg-charcoal-800/30 rounded-2xl overflow-hidden border border-charcoal-700 hover:border-charcoal-600 transition-all duration-500 hover:scale-105 cursor-pointer backdrop-blur-sm">
                         <div class="h-48 bg-charcoal-800 flex items-center justify-center text-6xl">👕</div>
                         <div class="p-6">
                             <div class="text-charcoal-400 text-sm font-semibold mb-2">Web & Mobile</div>
                             <h3 class="text-2xl font-bold mb-2 text-charcoal-100">LaundryPro</h3>
-                            <p class="text-charcoal-400 mb-4" data-id="Sistem manajemen laundry lengkap" data-en="Complete laundry management system">Sistem manajemen laundry lengkap</p>
+                            <p class="text-charcoal-400 mb-4" data-id="Sistem manajemen laundry lengkap"
+                                data-en="Complete laundry management system">Sistem manajemen laundry lengkap</p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-charcoal-700 rounded-full text-xs font-medium text-charcoal-300">React</span>
-                                <span class="px-3 py-1 bg-charcoal-700 rounded-full text-xs font-medium text-charcoal-300">Node.js</span>
-                                <span class="px-3 py-1 bg-charcoal-700 rounded-full text-xs font-medium text-charcoal-300">PostgreSQL</span>
+                                <span
+                                    class="px-3 py-1 bg-charcoal-700 rounded-full text-xs font-medium text-charcoal-300">React</span>
+                                <span
+                                    class="px-3 py-1 bg-charcoal-700 rounded-full text-xs font-medium text-charcoal-300">Node.js</span>
+                                <span
+                                    class="px-3 py-1 bg-charcoal-700 rounded-full text-xs font-medium text-charcoal-300">PostgreSQL</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Project 3: Rumaia -->
-                    <div class="group bg-charcoal-800/30 rounded-2xl overflow-hidden border border-charcoal-700 hover:border-charcoal-600 transition-all duration-500 hover:scale-105 cursor-pointer backdrop-blur-sm">
+                    <div
+                        class="group bg-charcoal-800/30 rounded-2xl overflow-hidden border border-charcoal-700 hover:border-charcoal-600 transition-all duration-500 hover:scale-105 cursor-pointer backdrop-blur-sm">
                         <div class="h-48 bg-charcoal-800 flex items-center justify-center text-6xl">🏠</div>
                         <div class="p-6">
                             <div class="text-charcoal-400 text-sm font-semibold mb-2">Web Platform</div>
                             <h3 class="text-2xl font-bold mb-2 text-charcoal-100">Rumaia</h3>
-                            <p class="text-charcoal-400 mb-4" data-id="Platform properti berbasis blockchain" data-en="Blockchain-based property platform">Platform properti berbasis blockchain</p>
+                            <p class="text-charcoal-400 mb-4" data-id="Platform properti berbasis blockchain"
+                                data-en="Blockchain-based property platform">Platform properti berbasis blockchain</p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-charcoal-700 rounded-full text-xs font-medium text-charcoal-300">Web3</span>
-                                <span class="px-3 py-1 bg-charcoal-700 rounded-full text-xs font-medium text-charcoal-300">Blockchain</span>
-                                <span class="px-3 py-1 bg-charcoal-700 rounded-full text-xs font-medium text-charcoal-300">Smart Contracts</span>
+                                <span
+                                    class="px-3 py-1 bg-charcoal-700 rounded-full text-xs font-medium text-charcoal-300">Web3</span>
+                                <span
+                                    class="px-3 py-1 bg-charcoal-700 rounded-full text-xs font-medium text-charcoal-300">Blockchain</span>
+                                <span
+                                    class="px-3 py-1 bg-charcoal-700 rounded-full text-xs font-medium text-charcoal-300">Smart
+                                    Contracts</span>
                             </div>
                         </div>
                     </div>
@@ -407,8 +532,11 @@
         <section id="teamPage" class="page-section py-20 bg-charcoal-900">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 fade-in">
-                    <h1 class="text-6xl font-black mb-6 text-charcoal-100" data-id="TIM KAMI" data-en="OUR TEAM">TIM KAMI</h1>
-                    <p class="text-xl text-charcoal-400 max-w-3xl mx-auto" data-id="Bertemu dengan para ahli yang berdedikasi untuk menghadirkan solusi teknologi terbaik" data-en="Meet the experts dedicated to delivering the best technology solutions">
+                    <h1 class="text-6xl font-black mb-6 text-charcoal-100" data-id="TIM KAMI" data-en="OUR TEAM">TIM
+                        KAMI</h1>
+                    <p class="text-xl text-charcoal-400 max-w-3xl mx-auto"
+                        data-id="Bertemu dengan para ahli yang berdedikasi untuk menghadirkan solusi teknologi terbaik"
+                        data-en="Meet the experts dedicated to delivering the best technology solutions">
                         Bertemu dengan para ahli yang berdedikasi untuk menghadirkan solusi teknologi terbaik
                     </p>
                 </div>
@@ -421,41 +549,50 @@
                 <!-- Team Detail View (Hidden by default) -->
                 <div id="teamDetail" class="hidden animate-scale-in">
                     <div class="bg-charcoal-800/30 rounded-2xl p-8 border border-charcoal-700 backdrop-blur-sm">
-                        <button onclick="showTeamGrid()" class="flex items-center space-x-2 text-charcoal-400 hover:text-charcoal-200 mb-6 transition-colors group">
-                            <span class="lucide-icon w-5 h-5 group-hover:-translate-x-1 transition-transform" data-lucide="arrow-left"></span>
+                        <button onclick="showTeamGrid()"
+                            class="flex items-center space-x-2 text-charcoal-400 hover:text-charcoal-200 mb-6 transition-colors group">
+                            <span class="lucide-icon w-5 h-5 group-hover:-translate-x-1 transition-transform"
+                                data-lucide="arrow-left"></span>
                             <span data-id="Kembali ke Tim" data-en="Back to Team">Kembali ke Tim</span>
                         </button>
-                        
+
                         <div class="grid md:grid-cols-2 gap-8 items-start">
                             <!-- Photo & Basic Info -->
                             <div class="text-center md:text-left">
-                                <div class="w-64 h-64 mx-auto md:mx-0 mb-6 rounded-2xl overflow-hidden border-4 border-charcoal-600">
+                                <div
+                                    class="w-64 h-64 mx-auto md:mx-0 mb-6 rounded-2xl overflow-hidden border-4 border-charcoal-600">
                                     <img id="detailPhoto" src="" alt="" class="w-full h-full object-cover">
                                 </div>
                                 <h2 id="detailName" class="text-3xl font-bold text-charcoal-100 mb-2"></h2>
                                 <p id="detailRole" class="text-xl text-charcoal-400 mb-4 font-semibold"></p>
                                 <div class="flex justify-center md:justify-start space-x-4">
-                                    <a id="detailGithub" href="#" class="text-charcoal-400 hover:text-charcoal-200 transition-colors">
+                                    <a id="detailGithub" href="#"
+                                        class="text-charcoal-400 hover:text-charcoal-200 transition-colors">
                                         <span class="lucide-icon w-6 h-6" data-lucide="github"></span>
                                     </a>
-                                    <a id="detailLinkedin" href="#" class="text-charcoal-400 hover:text-charcoal-200 transition-colors">
+                                    <a id="detailLinkedin" href="#"
+                                        class="text-charcoal-400 hover:text-charcoal-200 transition-colors">
                                         <span class="lucide-icon w-6 h-6" data-lucide="linkedin"></span>
                                     </a>
-                                    <a id="detailTwitter" href="#" class="text-charcoal-400 hover:text-charcoal-200 transition-colors">
+                                    <a id="detailTwitter" href="#"
+                                        class="text-charcoal-400 hover:text-charcoal-200 transition-colors">
                                         <span class="lucide-icon w-6 h-6" data-lucide="twitter"></span>
                                     </a>
                                 </div>
                             </div>
-                            
+
                             <!-- Detailed Info -->
                             <div>
-                                <h3 class="text-2xl font-bold text-charcoal-100 mb-4" data-id="Tentang" data-en="About">Tentang</h3>
+                                <h3 class="text-2xl font-bold text-charcoal-100 mb-4" data-id="Tentang" data-en="About">
+                                    Tentang</h3>
                                 <p id="detailBio" class="text-charcoal-400 mb-6 leading-relaxed"></p>
-                                
-                                <h4 class="text-xl font-bold text-charcoal-100 mb-3" data-id="Keahlian" data-en="Expertise">Keahlian</h4>
+
+                                <h4 class="text-xl font-bold text-charcoal-100 mb-3" data-id="Keahlian"
+                                    data-en="Expertise">Keahlian</h4>
                                 <div id="detailSkills" class="flex flex-wrap gap-2 mb-6"></div>
-                                
-                                <h4 class="text-xl font-bold text-charcoal-100 mb-3" data-id="Pengalaman" data-en="Experience">Pengalaman</h4>
+
+                                <h4 class="text-xl font-bold text-charcoal-100 mb-3" data-id="Pengalaman"
+                                    data-en="Experience">Pengalaman</h4>
                                 <p id="detailExperience" class="text-charcoal-400"></p>
                             </div>
                         </div>
@@ -464,9 +601,14 @@
 
                 <!-- CTA -->
                 <div class="mt-16 bg-charcoal-800/50 rounded-2xl p-12 text-center border border-charcoal-700">
-                    <h2 class="text-3xl font-bold mb-4 text-charcoal-100" data-id="Ingin Bergabung dengan Tim Kami?" data-en="Want to Join Our Team?">Ingin Bergabung dengan Tim Kami?</h2>
-                    <p class="text-lg mb-8 text-charcoal-400" data-id="Kami selalu mencari talenta terbaik untuk bergabung dalam misi kami" data-en="We are always looking for the best talents to join our mission">Kami selalu mencari talenta terbaik untuk bergabung dalam misi kami</p>
-                    <button onclick="navigateTo('contact')" class="px-8 py-4 bg-charcoal-700 hover:bg-charcoal-600 text-charcoal-100 rounded-xl font-semibold transition-all border border-charcoal-600">
+                    <h2 class="text-3xl font-bold mb-4 text-charcoal-100" data-id="Ingin Bergabung dengan Tim Kami?"
+                        data-en="Want to Join Our Team?">Ingin Bergabung dengan Tim Kami?</h2>
+                    <p class="text-lg mb-8 text-charcoal-400"
+                        data-id="Kami selalu mencari talenta terbaik untuk bergabung dalam misi kami"
+                        data-en="We are always looking for the best talents to join our mission">Kami selalu mencari
+                        talenta terbaik untuk bergabung dalam misi kami</p>
+                    <button onclick="navigateTo('contact')"
+                        class="px-8 py-4 bg-charcoal-700 hover:bg-charcoal-600 text-charcoal-100 rounded-xl font-semibold transition-all border border-charcoal-600">
                         <span data-id="Hubungi Kami" data-en="Contact Us">Hubungi Kami</span>
                     </button>
                 </div>
@@ -479,8 +621,11 @@
         <section id="aboutPage" class="page-section py-20 bg-charcoal-900">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 fade-in">
-                    <h1 class="text-6xl font-black mb-6 text-charcoal-100" data-id="TENTANG KAMI" data-en="ABOUT US">TENTANG KAMI</h1>
-                    <p class="text-xl text-charcoal-400 max-w-3xl mx-auto" data-id="Cerita perjalanan kami dalam membangun solusi teknologi terbaik untuk bisnis Indonesia" data-en="Our journey story in building the best technology solutions for Indonesian businesses">
+                    <h1 class="text-6xl font-black mb-6 text-charcoal-100" data-id="TENTANG KAMI" data-en="ABOUT US">
+                        TENTANG KAMI</h1>
+                    <p class="text-xl text-charcoal-400 max-w-3xl mx-auto"
+                        data-id="Cerita perjalanan kami dalam membangun solusi teknologi terbaik untuk bisnis Indonesia"
+                        data-en="Our journey story in building the best technology solutions for Indonesian businesses">
                         Cerita perjalanan kami dalam membangun solusi teknologi terbaik untuk bisnis Indonesia
                     </p>
                 </div>
@@ -491,27 +636,40 @@
                         <div class="w-14 h-14 bg-charcoal-700 rounded-xl flex items-center justify-center mb-6">
                             <span class="lucide-icon text-charcoal-300 w-7 h-7" data-lucide="target"></span>
                         </div>
-                        <h2 class="text-3xl font-bold mb-4 text-charcoal-100" data-id="Visi Kami" data-en="Our Vision">Visi Kami</h2>
-                        <p class="text-charcoal-400 leading-relaxed" data-id="Menjadi perusahaan teknologi terdepan di Indonesia yang menghadirkan solusi digital inovatif dan berkualitas tinggi." data-en="To become the leading technology company in Indonesia that delivers innovative and high-quality digital solutions.">
-                            Menjadi perusahaan teknologi terdepan di Indonesia yang menghadirkan solusi digital inovatif dan berkualitas tinggi.
+                        <h2 class="text-3xl font-bold mb-4 text-charcoal-100" data-id="Visi Kami" data-en="Our Vision">
+                            Visi Kami</h2>
+                        <p class="text-charcoal-400 leading-relaxed"
+                            data-id="Menjadi perusahaan teknologi terdepan di Indonesia yang menghadirkan solusi digital inovatif dan berkualitas tinggi."
+                            data-en="To become the leading technology company in Indonesia that delivers innovative and high-quality digital solutions.">
+                            Menjadi perusahaan teknologi terdepan di Indonesia yang menghadirkan solusi digital inovatif
+                            dan berkualitas tinggi.
                         </p>
                     </div>
                     <div class="bg-charcoal-800/30 p-8 rounded-2xl border border-charcoal-700 backdrop-blur-sm">
                         <div class="w-14 h-14 bg-charcoal-700 rounded-xl flex items-center justify-center mb-6">
                             <span class="lucide-icon text-charcoal-300 w-7 h-7" data-lucide="rocket"></span>
                         </div>
-                        <h2 class="text-3xl font-bold mb-4 text-charcoal-100" data-id="Misi Kami" data-en="Our Mission">Misi Kami</h2>
-                        <p class="text-charcoal-400 leading-relaxed" data-id="Memberikan solusi teknologi yang dapat diakses semua kalangan, mendukung UMKM dan perusahaan besar dengan layanan profesional." data-en="Provide technology solutions accessible to all, support SMEs and large companies with professional services.">
-                            Memberikan solusi teknologi yang dapat diakses semua kalangan, mendukung UMKM dan perusahaan besar dengan layanan profesional.
+                        <h2 class="text-3xl font-bold mb-4 text-charcoal-100" data-id="Misi Kami" data-en="Our Mission">
+                            Misi Kami</h2>
+                        <p class="text-charcoal-400 leading-relaxed"
+                            data-id="Memberikan solusi teknologi yang dapat diakses semua kalangan, mendukung UMKM dan perusahaan besar dengan layanan profesional."
+                            data-en="Provide technology solutions accessible to all, support SMEs and large companies with professional services.">
+                            Memberikan solusi teknologi yang dapat diakses semua kalangan, mendukung UMKM dan perusahaan
+                            besar dengan layanan profesional.
                         </p>
                     </div>
                 </div>
 
                 <!-- CTA -->
                 <div class="mt-16 bg-charcoal-800/50 rounded-2xl p-12 text-center border border-charcoal-700">
-                    <h2 class="text-3xl font-bold mb-4 text-charcoal-100" data-id="Mari Berkembang Bersama" data-en="Let's Grow Together">Mari Berkembang Bersama</h2>
-                    <p class="text-lg mb-8 text-charcoal-400" data-id="Hubungi kami dan mulai perjalanan digital Anda hari ini" data-en="Contact us and start your digital journey today">Hubungi kami dan mulai perjalanan digital Anda hari ini</p>
-                    <button onclick="navigateTo('contact')" class="px-8 py-4 bg-charcoal-700 hover:bg-charcoal-600 text-charcoal-100 rounded-xl font-semibold transition-all border border-charcoal-600">
+                    <h2 class="text-3xl font-bold mb-4 text-charcoal-100" data-id="Mari Berkembang Bersama"
+                        data-en="Let's Grow Together">Mari Berkembang Bersama</h2>
+                    <p class="text-lg mb-8 text-charcoal-400"
+                        data-id="Hubungi kami dan mulai perjalanan digital Anda hari ini"
+                        data-en="Contact us and start your digital journey today">Hubungi kami dan mulai perjalanan
+                        digital Anda hari ini</p>
+                    <button onclick="navigateTo('contact')"
+                        class="px-8 py-4 bg-charcoal-700 hover:bg-charcoal-600 text-charcoal-100 rounded-xl font-semibold transition-all border border-charcoal-600">
                         <span data-id="Hubungi Kami" data-en="Contact Us">Hubungi Kami</span>
                     </button>
                 </div>
@@ -524,8 +682,11 @@
         <section id="contactPage" class="page-section py-20 bg-charcoal-900">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 fade-in">
-                    <h1 class="text-6xl font-black mb-6 text-charcoal-100" data-id="HUBUNGI KAMI" data-en="CONTACT US">HUBUNGI KAMI</h1>
-                    <p class="text-xl text-charcoal-400 max-w-3xl mx-auto" data-id="Punya proyek dalam pikiran? Mari diskusikan bagaimana kami dapat membantu mewujudkannya" data-en="Have a project in mind? Let's discuss how we can help bring it to life">
+                    <h1 class="text-6xl font-black mb-6 text-charcoal-100" data-id="HUBUNGI KAMI" data-en="CONTACT US">
+                        HUBUNGI KAMI</h1>
+                    <p class="text-xl text-charcoal-400 max-w-3xl mx-auto"
+                        data-id="Punya proyek dalam pikiran? Mari diskusikan bagaimana kami dapat membantu mewujudkannya"
+                        data-en="Have a project in mind? Let's discuss how we can help bring it to life">
                         Punya proyek dalam pikiran? Mari diskusikan bagaimana kami dapat membantu mewujudkannya
                     </p>
                 </div>
@@ -533,15 +694,19 @@
                 <div class="grid md:grid-cols-2 gap-12">
                     <!-- Contact Form -->
                     <div class="bg-charcoal-800/30 p-8 rounded-2xl border border-charcoal-700 backdrop-blur-sm">
-                        <h2 class="text-2xl font-bold mb-6 text-charcoal-100" data-id="Kirim Pesan" data-en="Send Message">Kirim Pesan</h2>
-                        
+                        <h2 class="text-2xl font-bold mb-6 text-charcoal-100" data-id="Kirim Pesan"
+                            data-en="Send Message">Kirim Pesan</h2>
+
                         <!-- Form Success Message -->
-                        <div id="formSuccess" class="hidden bg-charcoal-700 border border-charcoal-600 rounded-xl p-6 text-center animate-scale-in">
+                        <div id="formSuccess"
+                            class="hidden bg-charcoal-700 border border-charcoal-600 rounded-xl p-6 text-center animate-scale-in">
                             <div class="text-5xl mb-4">✅</div>
-                            <h3 class="text-xl font-bold text-charcoal-100 mb-2" data-id="Pesan Terkirim!" data-en="Message Sent!">
+                            <h3 class="text-xl font-bold text-charcoal-100 mb-2" data-id="Pesan Terkirim!"
+                                data-en="Message Sent!">
                                 Pesan Terkirim!
                             </h3>
-                            <p class="text-charcoal-400" data-id="Terima kasih! Kami akan segera menghubungi Anda." data-en="Thank you! We will contact you soon.">
+                            <p class="text-charcoal-400" data-id="Terima kasih! Kami akan segera menghubungi Anda."
+                                data-en="Thank you! We will contact you soon.">
                                 Terima kasih! Kami akan segera menghubungi Anda.
                             </p>
                         </div>
@@ -549,51 +714,41 @@
                         <!-- Form -->
                         <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4">
                             <div>
-                                <label for="name" class="block text-sm font-medium mb-2 text-charcoal-300" data-id="Nama Lengkap" data-en="Full Name">Nama Lengkap</label>
-                                <input
-                                    type="text"
-                                    id="name"
-                                    required
+                                <label for="name" class="block text-sm font-medium mb-2 text-charcoal-300"
+                                    data-id="Nama Lengkap" data-en="Full Name">Nama Lengkap</label>
+                                <input type="text" id="name" required
                                     class="w-full px-4 py-3 bg-charcoal-800 border border-charcoal-700 rounded-xl focus:border-charcoal-500 focus:outline-none text-charcoal-100 placeholder-charcoal-500 transition-colors"
-                                    placeholder="Masukkan nama Anda"
-                                />
+                                    placeholder="Masukkan nama Anda" />
                             </div>
                             <div>
-                                <label for="email" class="block text-sm font-medium mb-2 text-charcoal-300">Email</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    required
+                                <label for="email"
+                                    class="block text-sm font-medium mb-2 text-charcoal-300">Email</label>
+                                <input type="email" id="email" required
                                     class="w-full px-4 py-3 bg-charcoal-800 border border-charcoal-700 rounded-xl focus:border-charcoal-500 focus:outline-none text-charcoal-100 placeholder-charcoal-500 transition-colors"
-                                    placeholder="nama@email.com"
-                                />
+                                    placeholder="nama@email.com" />
                             </div>
                             <div>
-                                <label for="phone" class="block text-sm font-medium mb-2 text-charcoal-300" data-id="Nomor Telepon" data-en="Phone Number">Nomor Telepon</label>
-                                <input
-                                    type="tel"
-                                    id="phone"
+                                <label for="phone" class="block text-sm font-medium mb-2 text-charcoal-300"
+                                    data-id="Nomor Telepon" data-en="Phone Number">Nomor Telepon</label>
+                                <input type="tel" id="phone"
                                     class="w-full px-4 py-3 bg-charcoal-800 border border-charcoal-700 rounded-xl focus:border-charcoal-500 focus:outline-none text-charcoal-100 placeholder-charcoal-500 transition-colors"
-                                    placeholder="+62 812-3456-7890"
-                                />
+                                    placeholder="+62 812-3456-7890" />
                             </div>
                             <div>
-                                <label for="company" class="block text-sm font-medium mb-2 text-charcoal-300" data-id="Nama Perusahaan" data-en="Company Name">Nama Perusahaan</label>
-                                <input
-                                    type="text"
-                                    id="company"
+                                <label for="company" class="block text-sm font-medium mb-2 text-charcoal-300"
+                                    data-id="Nama Perusahaan" data-en="Company Name">Nama Perusahaan</label>
+                                <input type="text" id="company"
                                     class="w-full px-4 py-3 bg-charcoal-800 border border-charcoal-700 rounded-xl focus:border-charcoal-500 focus:outline-none text-charcoal-100 placeholder-charcoal-500 transition-colors"
-                                    placeholder="Opsional"
-                                />
+                                    placeholder="Opsional" />
                             </div>
                             <div>
-                                <label for="service" class="block text-sm font-medium mb-2 text-charcoal-300" data-id="Layanan yang Dibutuhkan" data-en="Service Needed">Layanan yang Dibutuhkan</label>
-                                <select
-                                    id="service"
-                                    required
-                                    class="w-full px-4 py-3 bg-charcoal-800 border border-charcoal-700 rounded-xl focus:border-charcoal-500 focus:outline-none text-charcoal-100 transition-colors"
-                                >
-                                    <option value="" data-id="Pilih layanan..." data-en="Select service...">Pilih layanan...</option>
+                                <label for="service" class="block text-sm font-medium mb-2 text-charcoal-300"
+                                    data-id="Layanan yang Dibutuhkan" data-en="Service Needed">Layanan yang
+                                    Dibutuhkan</label>
+                                <select id="service" required
+                                    class="w-full px-4 py-3 bg-charcoal-800 border border-charcoal-700 rounded-xl focus:border-charcoal-500 focus:outline-none text-charcoal-100 transition-colors">
+                                    <option value="" data-id="Pilih layanan..." data-en="Select service...">Pilih
+                                        layanan...</option>
                                     <option value="web">Web Development</option>
                                     <option value="mobile">Mobile App Development</option>
                                     <option value="uiux">UI/UX Design</option>
@@ -603,19 +758,14 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="message" class="block text-sm font-medium mb-2 text-charcoal-300" data-id="Pesan" data-en="Message">Pesan</label>
-                                <textarea
-                                    id="message"
-                                    required
-                                    rows="4"
+                                <label for="message" class="block text-sm font-medium mb-2 text-charcoal-300"
+                                    data-id="Pesan" data-en="Message">Pesan</label>
+                                <textarea id="message" required rows="4"
                                     class="w-full px-4 py-3 bg-charcoal-800 border border-charcoal-700 rounded-xl focus:border-charcoal-500 focus:outline-none text-charcoal-100 placeholder-charcoal-500 resize-none transition-colors"
-                                    placeholder="Ceritakan tentang proyek Anda..."
-                                ></textarea>
+                                    placeholder="Ceritakan tentang proyek Anda..."></textarea>
                             </div>
-                            <button
-                                type="submit"
-                                class="w-full px-8 py-4 bg-charcoal-700 hover:bg-charcoal-600 text-charcoal-100 rounded-xl font-semibold transition-all border border-charcoal-600 flex items-center justify-center space-x-2 hover:scale-105"
-                            >
+                            <button type="submit"
+                                class="w-full px-8 py-4 bg-charcoal-700 hover:bg-charcoal-600 text-charcoal-100 rounded-xl font-semibold transition-all border border-charcoal-600 flex items-center justify-center space-x-2 hover:scale-105">
                                 <span class="lucide-icon w-5 h-5" data-lucide="mail"></span>
                                 <span data-id="Kirim Pesan" data-en="Send Message">Kirim Pesan</span>
                             </button>
@@ -625,34 +775,44 @@
                     <!-- Contact Info & Hours -->
                     <div class="space-y-8">
                         <div class="bg-charcoal-800/30 p-8 rounded-2xl border border-charcoal-700 backdrop-blur-sm">
-                            <h2 class="text-2xl font-bold mb-6 text-charcoal-100" data-id="Informasi Kontak" data-en="Contact Information">Informasi Kontak</h2>
+                            <h2 class="text-2xl font-bold mb-6 text-charcoal-100" data-id="Informasi Kontak"
+                                data-en="Contact Information">Informasi Kontak</h2>
                             <div class="space-y-6">
                                 <div class="flex items-start space-x-4">
                                     <span class="lucide-icon text-charcoal-400 mt-1 w-6 h-6" data-lucide="mail"></span>
                                     <div>
                                         <div class="font-semibold mb-1 text-charcoal-300">Email</div>
-                                        <a href="mailto:hello@menujustartup.com" class="text-charcoal-400 hover:text-charcoal-200 transition-colors">hello@menujustartup.com</a>
+                                        <a href="mailto:hello@menujustartup.com"
+                                            class="text-charcoal-400 hover:text-charcoal-200 transition-colors">hello@menujustartup.com</a>
                                     </div>
                                 </div>
                                 <div class="flex items-start space-x-4">
                                     <span class="lucide-icon text-charcoal-400 mt-1 w-6 h-6" data-lucide="phone"></span>
                                     <div>
-                                        <div class="font-semibold mb-1 text-charcoal-300" data-id="Telepon" data-en="Phone">Telepon</div>
-                                        <a href="tel:+6281234567890" class="text-charcoal-400 hover:text-charcoal-200 transition-colors">+62 812-3456-7890</a>
+                                        <div class="font-semibold mb-1 text-charcoal-300" data-id="Telepon"
+                                            data-en="Phone">Telepon</div>
+                                        <a href="tel:+6281234567890"
+                                            class="text-charcoal-400 hover:text-charcoal-200 transition-colors">+62
+                                            812-3456-7890</a>
                                     </div>
                                 </div>
                                 <div class="flex items-start space-x-4">
-                                    <span class="lucide-icon text-charcoal-400 mt-1 w-6 h-6" data-lucide="map-pin"></span>
+                                    <span class="lucide-icon text-charcoal-400 mt-1 w-6 h-6"
+                                        data-lucide="map-pin"></span>
                                     <div>
-                                        <div class="font-semibold mb-1 text-charcoal-300" data-id="Alamat" data-en="Address">Alamat</div>
-                                        <div class="text-charcoal-400" data-id="Jakarta Barat, Jakarta, Indonesia" data-en="West Jakarta, Jakarta, Indonesia">Jakarta Barat, Jakarta, Indonesia</div>
+                                        <div class="font-semibold mb-1 text-charcoal-300" data-id="Alamat"
+                                            data-en="Address">Alamat</div>
+                                        <div class="text-charcoal-400" data-id="Jakarta Barat, Jakarta, Indonesia"
+                                            data-en="West Jakarta, Jakarta, Indonesia">Jakarta Barat, Jakarta, Indonesia
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="bg-charcoal-800/30 p-8 rounded-2xl border border-charcoal-700 backdrop-blur-sm">
-                            <h2 class="text-2xl font-bold mb-6 text-charcoal-100" data-id="Jam Operasional" data-en="Business Hours">Jam Operasional</h2>
+                            <h2 class="text-2xl font-bold mb-6 text-charcoal-100" data-id="Jam Operasional"
+                                data-en="Business Hours">Jam Operasional</h2>
                             <div class="space-y-3 text-charcoal-400">
                                 <div class="flex justify-between">
                                     <span data-id="Senin - Jumat" data-en="Monday - Friday">Senin - Jumat</span>
@@ -664,11 +824,14 @@
                                 </div>
                                 <div class="flex justify-between">
                                     <span data-id="Minggu" data-en="Sunday">Minggu</span>
-                                    <span class="font-semibold text-charcoal-500" data-id="Tutup" data-en="Closed">Tutup</span>
+                                    <span class="font-semibold text-charcoal-500" data-id="Tutup"
+                                        data-en="Closed">Tutup</span>
                                 </div>
                             </div>
                             <div class="mt-6 pt-6 border-t border-charcoal-700">
-                                <p class="text-sm text-charcoal-400" data-id="Untuk kebutuhan urgent, silakan hubungi nomor telepon kami." data-en="For urgent needs, please call our phone number.">
+                                <p class="text-sm text-charcoal-400"
+                                    data-id="Untuk kebutuhan urgent, silakan hubungi nomor telepon kami."
+                                    data-en="For urgent needs, please call our phone number.">
                                     Untuk kebutuhan urgent, silakan hubungi nomor telepon kami.
                                 </p>
                             </div>
@@ -678,23 +841,39 @@
 
                 <!-- FAQ -->
                 <div class="mt-16">
-                    <h2 class="text-4xl font-bold text-center mb-12 text-charcoal-100" data-id="Pertanyaan Umum" data-en="Frequently Asked Questions">Pertanyaan Umum</h2>
+                    <h2 class="text-4xl font-bold text-center mb-12 text-charcoal-100" data-id="Pertanyaan Umum"
+                        data-en="Frequently Asked Questions">Pertanyaan Umum</h2>
                     <div class="max-w-3xl mx-auto space-y-4">
-                        <details class="bg-charcoal-800/30 rounded-xl border border-charcoal-700 overflow-hidden backdrop-blur-sm">
-                            <summary class="px-6 py-4 font-semibold cursor-pointer hover:bg-charcoal-700/50 transition-colors flex justify-between items-center text-charcoal-100">
-                                <span data-id="Berapa lama waktu pengerjaan proyek?" data-en="How long does project development take?">Berapa lama waktu pengerjaan proyek?</span>
-                                <span class="lucide-icon w-5 h-5 chevron-icon transition-transform text-charcoal-400" data-lucide="chevron-right"></span>
+                        <details
+                            class="bg-charcoal-800/30 rounded-xl border border-charcoal-700 overflow-hidden backdrop-blur-sm">
+                            <summary
+                                class="px-6 py-4 font-semibold cursor-pointer hover:bg-charcoal-700/50 transition-colors flex justify-between items-center text-charcoal-100">
+                                <span data-id="Berapa lama waktu pengerjaan proyek?"
+                                    data-en="How long does project development take?">Berapa lama waktu pengerjaan
+                                    proyek?</span>
+                                <span class="lucide-icon w-5 h-5 chevron-icon transition-transform text-charcoal-400"
+                                    data-lucide="chevron-right"></span>
                             </summary>
-                            <div class="px-6 pb-4 text-charcoal-400" data-id="Waktu pengerjaan bervariasi tergantung kompleksitas proyek, mulai dari 2 minggu hingga 3 bulan." data-en="Development time varies depending on project complexity, from 2 weeks to 3 months.">
-                                Waktu pengerjaan bervariasi tergantung kompleksitas proyek, mulai dari 2 minggu hingga 3 bulan.
+                            <div class="px-6 pb-4 text-charcoal-400"
+                                data-id="Waktu pengerjaan bervariasi tergantung kompleksitas proyek, mulai dari 2 minggu hingga 3 bulan."
+                                data-en="Development time varies depending on project complexity, from 2 weeks to 3 months.">
+                                Waktu pengerjaan bervariasi tergantung kompleksitas proyek, mulai dari 2 minggu hingga 3
+                                bulan.
                             </div>
                         </details>
-                        <details class="bg-charcoal-800/30 rounded-xl border border-charcoal-700 overflow-hidden backdrop-blur-sm">
-                            <summary class="px-6 py-4 font-semibold cursor-pointer hover:bg-charcoal-700/50 transition-colors flex justify-between items-center text-charcoal-100">
-                                <span data-id="Apakah ada garansi untuk proyek yang dikerjakan?" data-en="Is there a guarantee for completed projects?">Apakah ada garansi untuk proyek yang dikerjakan?</span>
-                                <span class="lucide-icon w-5 h-5 chevron-icon transition-transform text-charcoal-400" data-lucide="chevron-right"></span>
+                        <details
+                            class="bg-charcoal-800/30 rounded-xl border border-charcoal-700 overflow-hidden backdrop-blur-sm">
+                            <summary
+                                class="px-6 py-4 font-semibold cursor-pointer hover:bg-charcoal-700/50 transition-colors flex justify-between items-center text-charcoal-100">
+                                <span data-id="Apakah ada garansi untuk proyek yang dikerjakan?"
+                                    data-en="Is there a guarantee for completed projects?">Apakah ada garansi untuk
+                                    proyek yang dikerjakan?</span>
+                                <span class="lucide-icon w-5 h-5 chevron-icon transition-transform text-charcoal-400"
+                                    data-lucide="chevron-right"></span>
                             </summary>
-                            <div class="px-6 pb-4 text-charcoal-400" data-id="Ya, kami memberikan garansi maintenance 3 bulan untuk semua proyek yang kami kerjakan." data-en="Yes, we provide 3 months maintenance guarantee for all projects we complete.">
+                            <div class="px-6 pb-4 text-charcoal-400"
+                                data-id="Ya, kami memberikan garansi maintenance 3 bulan untuk semua proyek yang kami kerjakan."
+                                data-en="Yes, we provide 3 months maintenance guarantee for all projects we complete.">
                                 Ya, kami memberikan garansi maintenance 3 bulan untuk semua proyek yang kami kerjakan.
                             </div>
                         </details>
@@ -707,13 +886,17 @@
         <section id="builderPage" class="page-section py-20 bg-charcoal-900">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 fade-in">
-                    <h1 class="text-6xl font-black mb-6 text-charcoal-100" data-id="WEB BUILDER" data-en="WEB BUILDER">WEB BUILDER</h1>
-                    <p class="text-xl text-charcoal-400 max-w-3xl mx-auto" data-id="Buat website impian Anda dalam hitungan menit dengan bantuan AI" data-en="Create your dream website in minutes with AI assistance">
+                    <h1 class="text-6xl font-black mb-6 text-charcoal-100" data-id="WEB BUILDER" data-en="WEB BUILDER">
+                        WEB BUILDER</h1>
+                    <p class="text-xl text-charcoal-400 max-w-3xl mx-auto"
+                        data-id="Buat website impian Anda dalam hitungan menit dengan bantuan AI"
+                        data-en="Create your dream website in minutes with AI assistance">
                         Buat website impian Anda dalam hitungan menit dengan bantuan AI
                     </p>
                 </div>
                 <div class="text-center">
-                    <p class="text-charcoal-400" data-id="Fitur sedang dalam pengembangan..." data-en="Feature under development...">Fitur sedang dalam pengembangan...</p>
+                    <p class="text-charcoal-400" data-id="Fitur sedang dalam pengembangan..."
+                        data-en="Feature under development...">Fitur sedang dalam pengembangan...</p>
                 </div>
             </div>
         </section>
@@ -732,18 +915,28 @@
                             Menuju<span class="text-charcoal-400">Startup</span>
                         </span>
                     </div>
-                    <p class="text-charcoal-400 text-sm" data-id="Partner teknologi terpercaya untuk transformasi digital bisnis Anda." data-en="Your trusted technology partner for digital transformation.">
+                    <p class="text-charcoal-400 text-sm"
+                        data-id="Partner teknologi terpercaya untuk transformasi digital bisnis Anda."
+                        data-en="Your trusted technology partner for digital transformation.">
                         Partner teknologi terpercaya untuk transformasi digital bisnis Anda.
                     </p>
                 </div>
                 <!-- Kolom 2: Navigasi -->
                 <div>
-                    <h4 class="font-semibold mb-4 text-charcoal-200" data-id="Navigasi" data-en="Navigation">Navigasi</h4>
+                    <h4 class="font-semibold mb-4 text-charcoal-200" data-id="Navigasi" data-en="Navigation">Navigasi
+                    </h4>
                     <div class="space-y-2">
-                        <button onclick="navigateTo('home')" class="block text-charcoal-400 hover:text-charcoal-200 text-sm transition-colors">Home</button>
-                        <button onclick="navigateTo('services')" class="block text-charcoal-400 hover:text-charcoal-200 text-sm transition-colors" data-id="Layanan" data-en="Services">Layanan</button>
-                        <button onclick="navigateTo('portfolio')" class="block text-charcoal-400 hover:text-charcoal-200 text-sm transition-colors" data-id="Portofolio" data-en="Portfolio">Portofolio</button>
-                        <button onclick="navigateTo('team')" class="block text-charcoal-400 hover:text-charcoal-200 text-sm transition-colors" data-id="Tim" data-en="Team">Tim</button>
+                        <button onclick="navigateTo('home')"
+                            class="block text-charcoal-400 hover:text-charcoal-200 text-sm transition-colors">Home</button>
+                        <button onclick="navigateTo('services')"
+                            class="block text-charcoal-400 hover:text-charcoal-200 text-sm transition-colors"
+                            data-id="Layanan" data-en="Services">Layanan</button>
+                        <button onclick="navigateTo('portfolio')"
+                            class="block text-charcoal-400 hover:text-charcoal-200 text-sm transition-colors"
+                            data-id="Portofolio" data-en="Portfolio">Portofolio</button>
+                        <button onclick="navigateTo('team')"
+                            class="block text-charcoal-400 hover:text-charcoal-200 text-sm transition-colors"
+                            data-id="Tim" data-en="Team">Tim</button>
                     </div>
                 </div>
                 <!-- Kolom 3: Layanan -->
@@ -758,11 +951,15 @@
                 </div>
                 <!-- Kolom 4: Social Media -->
                 <div>
-                    <h4 class="font-semibold mb-4 text-charcoal-200" data-id="Ikuti Kami" data-en="Follow Us">Ikuti Kami</h4>
+                    <h4 class="font-semibold mb-4 text-charcoal-200" data-id="Ikuti Kami" data-en="Follow Us">Ikuti Kami
+                    </h4>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-charcoal-400 hover:text-charcoal-200 transition-colors" aria-label="Github"><span class="lucide-icon w-5 h-5" data-lucide="github"></span></a>
-                        <a href="#" class="text-charcoal-400 hover:text-charcoal-200 transition-colors" aria-label="LinkedIn"><span class="lucide-icon w-5 h-5" data-lucide="linkedin"></span></a>
-                        <a href="#" class="text-charcoal-400 hover:text-charcoal-200 transition-colors" aria-label="Twitter"><span class="lucide-icon w-5 h-5" data-lucide="twitter"></span></a>
+                        <a href="#" class="text-charcoal-400 hover:text-charcoal-200 transition-colors"
+                            aria-label="Github"><span class="lucide-icon w-5 h-5" data-lucide="github"></span></a>
+                        <a href="#" class="text-charcoal-400 hover:text-charcoal-200 transition-colors"
+                            aria-label="LinkedIn"><span class="lucide-icon w-5 h-5" data-lucide="linkedin"></span></a>
+                        <a href="#" class="text-charcoal-400 hover:text-charcoal-200 transition-colors"
+                            aria-label="Twitter"><span class="lucide-icon w-5 h-5" data-lucide="twitter"></span></a>
                     </div>
                 </div>
             </div>
@@ -775,29 +972,62 @@
     <style>
         /* Animasi untuk floating dots */
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
         }
 
         @keyframes glow {
-            from { opacity: 0.4; }
-            to { opacity: 0.8; }
+            from {
+                opacity: 0.4;
+            }
+
+            to {
+                opacity: 0.8;
+            }
         }
 
         /* Animasi untuk halaman */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes scaleIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .fade-in {
@@ -808,17 +1038,20 @@
         .page-section {
             display: none;
         }
+
         .page-section.active {
             display: block;
         }
 
         /* Custom FAQ accordion */
-        details > summary {
+        details>summary {
             list-style: none;
         }
-        details > summary::-webkit-details-marker {
+
+        details>summary::-webkit-details-marker {
             display: none;
         }
+
         details[open] summary .chevron-icon {
             transform: rotate(90deg);
         }
@@ -951,7 +1184,7 @@
                 if (icon) {
                     const svg = h(icon, {
                         className: elem.className,
-                        size: elem.getAttribute('width') || elem.getAttribute('height') || 24 
+                        size: elem.getAttribute('width') || elem.getAttribute('height') || 24
                     });
                     ReactDOM.render(svg, elem);
                 }
@@ -1021,7 +1254,7 @@
             updateActivePage(page);
             closeMobileMenu();
             window.scrollTo(0, 0);
-            
+
             // Reinitialize team grid when team page is loaded
             if (page === 'team') {
                 setTimeout(() => {
@@ -1065,7 +1298,7 @@
             const mobileMenu = document.getElementById('mobileMenu');
             const menuIcon = document.getElementById('menuIcon');
             const xIcon = document.getElementById('xIcon');
-            
+
             mobileMenu.classList.toggle('hidden');
             menuIcon.classList.toggle('hidden');
             xIcon.classList.toggle('hidden');
@@ -1086,8 +1319,8 @@
 
         function updateLanguage() {
             document.querySelectorAll('[data-id]').forEach(elem => {
-                const text = currentLang === 'id' 
-                    ? elem.getAttribute('data-id') 
+                const text = currentLang === 'id'
+                    ? elem.getAttribute('data-id')
                     : elem.getAttribute('data-en');
                 if (text) {
                     elem.textContent = text;
@@ -1118,10 +1351,10 @@
             event.preventDefault();
             const form = document.getElementById('contactForm');
             const successMsg = document.getElementById('formSuccess');
-            
+
             form.classList.add('hidden');
             successMsg.classList.remove('hidden');
-            
+
             setTimeout(() => {
                 form.reset();
                 form.classList.remove('hidden');
@@ -1130,4 +1363,5 @@
         }
     </script>
 </body>
+
 </html>
